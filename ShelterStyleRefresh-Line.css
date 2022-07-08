@@ -1,0 +1,1138 @@
+/* 
+ * ShelterStyle Refresh
+ * Original layout design by Takana no Hana
+ * Refresh made by Valerio Lyndon
+ * Based on a modified version by Shishio-kun
+ * Last update: 2020-MAR-02
+ */
+
+
+@\import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelinkbefore";
+@\import "https://fonts.googleapis.com/css?family=Rancho|PT+Sans+Narrow";
+
+
+/*
+ * VARIABLES
+ */
+
+:root {
+	/* Various images
+	 * valid values: url(IMAGEURL) / none */
+	
+	--banner-avatar: url(http://i.imgur.com/AYGqofj.png);
+	
+	--all-anime-background: url(http://i.imgur.com/vuarwtS.jpg);
+	--watching-background: var(--all-anime-background);
+	--completed-background: var(--all-anime-background);
+	--on-hold-background: var(--all-anime-background);
+	--dropped-background: var(--all-anime-background);
+	--planned-background: var(--all-anime-background);
+	
+	--all-anime-banner: url(http://i.imgur.com/kAGfZRq.png);
+	--watching-banner: var(--all-anime-banner);
+	--completed-banner: var(--all-anime-banner);
+	--on-hold-banner: var(--all-anime-banner);
+	--dropped-banner: var(--all-anime-banner);
+	--planned-banner: var(--all-anime-banner);
+	
+	--all-anime-left-render: url(http://i.imgur.com/MO8goKt.png);
+	--watching-left-render: var(--all-anime-left-render);
+	--completed-left-render: var(--all-anime-left-render);
+	--on-hold-left-render: var(--all-anime-left-render);
+	--dropped-left-render: var(--all-anime-left-render);
+	--planned-left-render: var(--all-anime-left-render);
+	
+	--all-anime-right-render: url(http://i.imgur.com/MO8goKt.png);
+	--watching-right-render: var(--all-anime-left-render);
+	--completed-right-render: var(--all-anime-left-render);
+	--on-hold-right-render: var(--all-anime-left-render);
+	--dropped-right-render: var(--all-anime-left-render);
+	--planned-right-render: var(--all-anime-left-render);
+	
+	--filter-background: url(http://i.imgur.com/xD2LRjG.png);
+	
+	--cursor: url(https://i.imgur.com/iAvGz1j.png);
+	
+	/* Change the amount the cursor is offset from its default placement.
+	 * Useful for when cursor images have a lot of white space on the edges 
+	 * valid values: two numbers relating to the <x> and <y> position e.x: 3 1 */
+	--cursor-offset: 2 2;
+	
+	/* Change banner quote
+	 * valid values: "Quote-surrounded sentence or text" */
+	--banner-quote: "Your Quote Here!";
+	
+	/* Change banner height
+	 * valid values: "px"-suffixed number value e.x: 250px
+	 * recommended min: 35px */
+	--banner-height: 400px;
+	
+	/* Changes banner transparency.
+	 * min: 0 / max: 1
+	 * higher = more opaque */
+	--banner-opacity: 1;
+	
+	/* Reduces banner fade effect.
+	 * min: 0 / recommended max: 2.43
+	 * higher = more fading */
+	--banner-fade-multiplier: 2.0;
+	
+	/* Theme colours
+	 * valid values: any valid CSS colour
+	 * for help choosing a colour and getting its CSS value,
+	 * see https://www.w3schools.com/colors/colors_hsl.asp */
+	 
+	--menu-background-color: rgba(255,255,255,.9);
+	--list-background-color-1: rgba(0,0,0,.3);
+	--list-background-color-2: rgba(0,0,0,.4);
+	--nav-background-color: var(--list-background-color-2);
+	--nav-dropdown-background-color: rgb(223,233,233,0.9);
+	--filter-button-background-color: rgba(0,0,0,0.8);
+	--hover-background-color: rgba(0,0,0,.5);
+	
+	--text-color-primary: #fff;
+	--text-color-3: rgba(255,255,255,0.8);	
+	--text-color-alt: #323232;
+	--text-color-soft: #9b9b9b;
+	--text-color-stark: #000;
+	--text-color-filter-menu: rgba(0,0,0,0.6);
+	
+	--border: #fff;
+	--border-soft: #bebebe;
+	--scroll-background: #f5f5f5;
+	--scroll-bar: #9b9b9b;
+	
+	--darkening-color: rgba(0,0,0,0.6);
+	
+	/* Changes various text and box shadows
+	 * --shadow-status is used for the Rewatching/Airing status
+	 * shadows are styled as such:
+	 * <x distance> <y distance> <blur> <spread (optional)> <colour> */
+	--shadow-heavy:
+		0 0 2px #000,
+		0 0 1px #000,
+		1px 1px 7px #000;
+	--shadow-soft:
+		0 2px 5px rgba(0,0,0, 0.7);
+	--shadow-image:
+		2px 2px 8px -3px rgba(0,0,0,.76);
+	--shadow-status:
+		0 0 2px #1a1aff,
+		0 0 1px #1a1aff,
+		1px 1px 7px #1a1aff;
+	
+	/* Font family sets
+	 * valid values: comma-separated list of fonts
+	 * fonts listed earlier (further left) take priority over later ones */
+	--font-set-default: "Helvetica neue", "Helvetica", "lucida grande", "Tahoma", "Verdana", "Arial", "FontAwesome", sans-serif;
+	--font-set-icon: "FontAwesome", "Helvetica neue", "Helvetica", "Lucida Grande", "Tahoma", "Verdana", "Arial", sans-serif;
+	--font-set-title: "PT Sans Narrow", sans-serif;
+	--font-set-tags: "Segoe UI", "Arial", "Helvetica", sans-serif;
+	--font-set-quote: "Rancho", cursive;
+}
+
+
+
+
+
+
+/*
+ * INTERNAL CODE
+ * This is where the code gets rather undocumented.
+ * If you don't already understand CSS, it may be hard to understand.
+ * I encourage modification of it, you won't break MAL by messing up the CSS.
+ * Just remember to keep backups in-case something goes funky.
+ */
+
+
+
+/* BASIC PAGE SETTINGS */
+
+* {
+	cursor: var(--cursor) var(--cursor-offset), default !important;
+	scrollbar-color: var(--scroll-bar) var(--scroll-background);
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+	height: 7px;
+	background: var(--scroll-background);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--scroll-bar);
+	border: 2px solid var(--scroll-background);
+}
+
+a {
+	color: var(--text-color-primary);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--text-color-primary) !important;
+	text-decoration: none;
+}
+
+body[data-query*='status":7'] {
+	--background: var(--all-anime-background);
+	--banner: var(--all-anime-banner);
+	--left-render: var(--all-anime-left-render);
+	--right-render: var(--all-anime-right-render);
+} body[data-query*='status":1'] {
+	--background: var(--watching-background);
+	--banner: var(--watching-banner);
+	--left-render: var(--watching-left-render);
+	--right-render: var(--watching-right-render);
+} body[data-query*='status":2'] {
+	--background: var(--completed-background);
+	--banner: var(--completed-banner);
+	--left-render: var(--completed-left-render);
+	--right-render: var(--completed-right-render);
+} body[data-query*='status":3'] {
+	--background: var(--on-hold-background);
+	--banner: var(--on-hold-banner);
+	--left-render: var(--on-hold-left-render);
+	--right-render: var(--on-hold-right-render);
+} body[data-query*='status":4'] {
+	--background: var(--dropped-background);
+	--banner: var(--dropped-banner);
+	--left-render: var(--dropped-left-render);
+	--right-render: var(--dropped-right-render);
+} body[data-query*='status":6'] {
+	--background: var(--planned-background);
+	--banner: var(--planned-banner);
+	--left-render: var(--planned-left-render);
+	--right-render: var(--planned-right-render);
+}
+
+body.ownlist {
+	background: fixed var(--background) center top / cover no-repeat;
+}
+
+
+
+/* HEADER */
+
+.header {
+	z-index: 40;
+	width: 100%;
+	height: 50px;
+	background: linear-gradient(var(--list-background-color-2), transparent);
+	border: none;
+	transition: background-color 0.3s ease-in-out;
+} .header:hover {
+	background-color: var(--hover-background-color);
+}
+
+.header a {
+	color: var(--text-color-primary);
+}
+
+.header .header-title {
+	top: 0px;
+	left: 40px;
+	background: url(http://i.imgur.com/39cRtfK.png) left top / auto 50px;
+	width: 50px; 
+	height: 50px;
+}
+
+.header .header-menu {
+	top: 5px;
+	color: var(--text-color-3);
+} .header .header-menu.other {
+	top: 5px;
+}
+
+.header .header-menu .btn-menu {
+	font-size: 12px;
+	text-shadow: var(--shadow-heavy);
+}
+
+.header .header-menu .header-info {
+	font-size: 10px;
+	color: var(--text-color-3);
+}
+
+.header .header-menu .list-menu {
+	background: var(--nav-dropdown-background-color);
+	border: none;
+}
+
+.header .header-menu .list-menu .icon-menu {
+	color: var(--text-color-alt);
+} .header .header-menu .list-menu .icon-menu:hover {
+	background: var(--hover-background-color);
+	color: var(--text-color-primary);
+}
+
+.header .header-menu .list-menu .icon-menu svg.icon {
+	fill: var(--text-color-alt);
+	transition: fill 0.3s ease-in-out;
+} .header .header-menu .list-menu .icon-menu:hover svg.icon {
+	fill: var(--text-color-primary);
+}
+
+
+
+/* HEADER DROPDOWN / USER MENU */
+
+.list-menu-float::before {
+	content: "\f0c9";
+	display: block;
+	width: 40px;
+	height: 50px;
+	color: var(--text-color-primary);
+	font-size: 1.5em;
+	line-height: 50px;
+	font-family: var(--font-set-icon);
+	text-align: center;
+	text-indent: 10px;
+	transition:
+		font-size 0.3s ease-in-out,
+		text-shadow 0.3s ease-in-out;
+	pointer-events: auto;
+} .list-menu-float:hover::before {
+	font-size: 1.7em;
+	text-shadow:
+		0 0 2px var(--text-color-primary),
+		0 0 1px var(--text-color-primary),
+		1px 1px 7px var(--text-color-primary);
+}
+
+.list-menu-float {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 250;
+	width: 50px;
+	height: 40px;
+	border: none;
+	pointer-events: none;
+} .list-menu-float:hover {
+	pointer-events: auto;
+}
+
+.list-menu-float .icon-menu {
+	width: 120px;
+	height: 30px;
+	background: var(--nav-dropdown-background-color) !important;
+	line-height: 30px;
+	opacity: 0;
+} .list-menu-float:hover .icon-menu {
+	opacity: 1;
+	transition:
+		opacity 0.3s ease-in-out,
+		background-image 0.3s ease-in-out,
+		color 0.3s ease-in-out;
+} .list-menu-float .icon-menu:hover {
+	width: 120px !important;
+	background-image: linear-gradient(var(--hover-background-color),var(--hover-background-color)) !important;
+}
+
+.list-menu-float .icon-menu .text {
+	top: 0;
+	left: 30px;
+	width: auto !important;
+	color: var(--text-color-alt);
+	opacity: 1;
+}
+
+.list-menu-float .icon-menu svg.icon {
+	top: 7px !important;
+	left: 5px !important;
+	width: 15px;
+	height: 15px;
+	fill: var(--text-color-alt);
+	transition: fill 0.3s ease-in-out;
+} .list-menu-float .icon-menu:hover svg.icon {
+	fill: var(--text-color-primary);
+}
+
+.list-menu-float .icon-menu.profile {
+	background-image: none;
+}
+
+.list-menu-float .icon-menu.profile::before,
+.list-menu-float .icon-menu.profile::after {
+	content: "\f007";
+	position: absolute;
+	color: var(--text-color-alt);
+	transition: color 0.3s ease-in-out;
+} .list-menu-float .icon-menu.profile::before {
+	top: 7px;
+	left: 5px;
+	width: 15px;
+	height: 15px;
+	font: 15px/15px "FontAwesome";
+	text-align: center;
+} .list-menu-float .icon-menu.profile::after {
+	content: "Profile";
+	top: 0;
+	left: 30px;
+	font-size: 1.4em;
+	font-family: var(--font-set-default);
+}
+
+.list-menu-float .icon-menu:hover .text,
+.list-menu-float .icon-menu:hover::before,
+.list-menu-float .icon-menu:hover::after {
+	color: var(--text-color-primary);
+}
+
+.list-menu-float .icon-menu.logout {
+	border-radius: 0 0 4px 4px;
+}
+
+.list-menu-float .icon-menu.setting {
+	display: none;
+}
+
+
+
+/* UPPER BANNER */
+
+.cover-block {
+	position: relative;
+	width: 1000px;
+}
+
+.cover-block .image-container {
+	display: block;
+	width: 1000px;
+	padding: 0;
+}
+
+#cover-image {
+	width: 1000px;
+	max-width: initial;
+	height: auto;
+	object-fit: cover;
+}
+
+.cover-block .image-container .btn-list-setting {
+	display: none;
+}
+
+.cover-block .image-container:hover .btn-list-setting {
+	border: none !important;
+	font-family: var(--font-set-default);
+}
+
+
+
+/* AVATAR & QUOTE */
+
+.cover-block::after {
+	content: "";
+	position: absolute;
+	bottom: -64px;
+	left: 57px;
+	z-index: 2;
+	display: block;
+	width: 130px;
+	height: 130px;
+	background: var(--banner-avatar) center / cover no-repeat var(--menu-background-color);
+	border: var(--border) 2px solid;
+	border-radius: 5px;
+	box-shadow: var(--shadow-soft);
+}
+
+.cover-block::before {
+	content: var(--banner-quote);
+	position: absolute;
+	bottom: 0;
+	left: 200px;
+	display: block;
+	width: 800px;
+	color: var(--text-color-primary);
+	font: 29px var(--font-set-quote);
+	text-align: left;
+	text-shadow: var(--shadow-heavy);
+	pointer-events: none;
+}
+
+
+
+/* STATUS MENU */
+
+#status-menu {
+	position: static;
+	width: 1000px;
+	height: 40px;
+	background-color: var(--menu-background-color);
+	border: none;
+}
+
+#status-menu .status-menu {
+	display: flex;
+	width: 654px;
+	margin: 0 0 0 191px;
+}
+
+#status-menu .status-button {
+	height: 16px;
+	flex: 1 1 auto;
+	color: var(--text-color-soft);
+	font-size: 1.1em;
+	line-height: 16px;
+	transition:
+		background-color .1s ease-in-out,
+		color .1s ease-in-out;
+} #status-menu .status-button.on {
+	color: var(--text-color-stark);
+	font-weight: bold;
+} #status-menu .status-button:hover {
+	background-color: var(--hover-background-color);
+	color: var(--text-color-primary);
+	transition-duration: .3s;
+}
+
+#status-menu .status-button::after {
+	content: none;
+}
+
+#status-menu .status-button::before {
+	font-size: 1.5em;
+	font-family: var(--font-set-icon);
+	vertical-align: top;
+} #status-menu .status-button.all_anime::before {
+	content: "\f022\00a0";
+} #status-menu .status-button.watching::before,
+#status-menu .status-button.reading::before {
+	content: "\f152\00a0\00a0";
+} #status-menu .status-button.completed::before {
+	content: "\f05d\00a0\00a0";
+} #status-menu .status-button.onhold::before {
+	content: "\f017\00a0\00a0";
+} #status-menu .status-button.plantowatch::before,
+#status-menu .status-button.plantoread::before {
+	content: "\f073\00a0\00a0";
+} #status-menu .status-button.dropped::before {
+	content: "\f00d\00a0\00a0";
+}
+
+
+
+/* SEARCH */
+
+.status-menu-container .search-container {
+	right: 0;
+	z-index: 20;
+	font-size: 0;
+	white-space: nowrap;
+}
+
+.status-menu-container .search-container #search-box {
+	height: 26px;
+	padding: 7px 0;
+	margin-top: 0;
+	font-size: 10px;
+	transition: width 0.3s;
+}
+
+.status-menu-container .search-container #search-box.open {
+	width: 128px;
+}
+
+.status-menu-container .search-container #search-button {
+	width: 27px;
+	height: 30px;
+	padding-top: 10px;
+	margin-top: 0;
+	color: var(--text-color-soft);
+	font-size: 18px;
+	text-align: center;
+	transition:
+		background-color 0.1s ease-in-out,
+		color 0.1s ease-in-out;
+} .status-menu-container .search-container .open + #search-button {
+	pointer-events: none;
+} .status-menu-container .search-container #search-button:hover {
+	background: var(--hover-background-color);
+	color: var(--text-color-primary) !important;
+	transition-duration: .3s;
+}
+
+
+
+/* LIST HEADER & STATS/FILTERS BUTTON */
+
+.list-unit .list-status-title {
+	display: block;
+	width: 1000px;
+	height: var(--banner-height);
+	background: var(--list-background-color-1);
+}
+
+.list-unit .list-status-title .text {
+	position: absolute;
+	bottom: 0;
+	display: block;
+	width: 1000px;
+	background: none;
+	border: none;
+	color: var(--text-color-primary);
+	font: 500 22px var(--font-set-default);
+	text-align: center;
+	letter-spacing: 0.5px;
+	text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000;
+}
+
+.list-unit .list-status-title .stats {
+	top: -40px;
+	right: 27px;
+	z-index: 1;
+	display: flex;
+	width: 128px;
+	height: 40px;
+	background: none;
+}
+
+.list-unit .list-status-title .stats a {
+	height: 40px;
+	margin: 0 !important;
+	flex: 1 1 auto;
+	color: var(--text-color-soft);
+	text-align: center;
+	transition:
+		background-color 0.1s ease-in-out,
+		color 0.1s ease-in-out;
+}
+
+.list-unit .list-status-title .stats a:hover {
+	background: var(--hover-background-color);
+	transition-duration: .3s;
+}
+
+
+
+/* LOWER BANNER */
+
+.list-unit .list-status-title::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: calc(var(--banner-height) - 35px);
+	background: var(--banner) center / cover no-repeat;
+	opacity: var(--banner-opacity);
+	-webkit-mask: linear-gradient(to top, rgba(0,0,0,0), #000 calc(41% * var(--banner-fade-multiplier)));
+	mask: linear-gradient(to top, rgba(0,0,0,0), #000 calc(41% * var(--banner-fade-multiplier)));
+}
+
+
+
+/* SORT-BY */
+
+.list-table-header {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	z-index: 200;
+	display: block;
+	pointer-events: none;
+} .list-table-header:hover {
+	pointer-events: auto;
+}
+
+.list-table .list-table-header::before {
+	content: "\f0dc\00a0SORT";
+	display: block;
+	width: 57px;
+	height: 40px;
+	color: var(--text-color-soft);
+	font: 700 11px/40px var(--font-set-icon);
+	text-align: center;
+	transition:
+		background-color 0.1s ease-in-out,
+		color 0.1s ease-in-out;
+	pointer-events: auto;
+} .list-table .list-table-header:hover::before {
+	color: var(--text-color-primary);
+	background: var(--list-background-color-2);
+	transition-duration: 0.3s;
+}
+
+.list-table .list-table-header .header-title {
+	display: block;
+	border: none;
+	width: 104px !important;
+	height: auto;
+	padding: 0 !important;
+	background: none var(--menu-background-color);
+	font-size: 0;
+	line-height: 0;
+	text-align: center !important;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+} .list-table .list-table-header:hover .header-title {
+	opacity: 1;
+}
+
+.list-table .list-table-header .header-title .link.sort {
+	display: block;
+	height: 40px;
+	color: var(--text-color-alt);
+	font-size: 11px;
+	line-height: 40px;
+	transition:
+		background 0.3s ease-in-out,
+		color 0.3s ease-in-out;
+} .list-table .list-table-header .header-title .link.sort:hover {
+	background: var(--hover-background-color);
+}
+
+.list-table .list-table-header .header-title .sort-icon {
+	color: var(--text-color-primary);
+}
+
+.list-table .list-table-header .header-title.image {
+	display: none;
+}
+
+
+
+/* LIST */
+
+.list-container {
+	width: 1000px;
+	background: transparent !important;
+	border: none;
+	box-shadow: var(--shadow-heavy);
+	margin: 100px auto 30px;
+	animation: 2s linear intro;
+}
+
+@keyframes intro {
+	0%, 16% {
+		opacity: 0;
+		margin-top: 100vh;
+	} 100% {
+		opacity: 1;
+		margin-top: 100px;
+	}
+}
+
+.list-block {
+	position: relative;
+	min-height: 265px;
+	margin: 0 !important;
+}
+
+.list-unit {
+	width: 1000px;
+}
+
+.list-table {
+	background: transparent !important;
+	border: none;
+}
+
+.list-unit .loading-space {
+	height: 43px;
+	background: var(--list-background-color-1);
+	margin: 0;
+	color: var(--text-color-primary);
+	font-size: 20px;
+	line-height: 43px;
+}
+
+.list-unit .list-stats {
+	position: absolute;
+	top: calc(5px + (var(--banner-height) * 0.6));
+	z-index: 1;
+	width: 100%;
+	background: var(--menu-background-color);
+	margin: 0 !important;
+	color: var(--text-color-stark);
+}
+
+.list-table > tbody:nth-child(2n+1) {
+	background: var(--list-background-color-2);
+} .list-table > tbody:nth-child(2n) {
+	background: var(--list-background-color-1);
+}
+
+.list-table-data {
+	transition:
+		background-color 0.2s linear;
+} .list-table-data:hover {
+	background: var(--list-background-color-1);
+	transition-duration: .06667s;
+}
+
+.list-table .list-table-data .data {
+	height: 35px;
+	border: none;
+	color: var(--text-color-primary) !important;
+}
+
+.list-table .list-table-data .data a {
+	color: var(--text-color-primary) !important;
+}
+
+.list-table .list-table-data .data:not(.number):not(.title):not(.tags):not(.studio) {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.list-table .list-table-data .data:last-of-type:not(.tags):not(.studio) {
+	padding-right: 12px !important;
+}
+
+.list-table .list-table-data a:not(.edit-disabled):hover {
+	color: var(--text-color-primary) !important;
+	text-decoration: underline;
+}
+
+.list-table .list-table-data a.edit-disabled {
+	color: var(--text-color-primary);
+}
+
+
+/* Status */
+
+.list-table .list-table-data .data.status {
+	background: none !important;
+}
+
+.list-table .list-table-data .data.status::before {
+	content: "";
+	position: absolute;
+	z-index: 100;
+	display: inline-block;
+	margin: -7px 0 0 8px;
+	font-size: 1.5em;
+	font-family: var(--font-set-icon);
+	opacity: 0;
+	transition: opacity .1s ease-in-out;
+	pointer-events: none;
+} .list-table .list-table-data:hover .data.status::before {
+	opacity: 1;
+	transition-duration: .3s;
+} .list-table .list-table-data .data.status.watching::before,
+.list-table .list-table-data .data.status.reading::before {
+	content: "\f152";
+} .list-table .list-table-data .data.status.completed::before {
+	content: "\f05d";
+} .list-table .list-table-data .data.status.onhold::before {
+	content: "\f017";
+} .list-table .list-table-data .data.status.dropped::before {
+	content: "\f00d";
+} .list-table .list-table-data .data.status.plantowatch::before,
+.list-table .list-table-data .data.status.plantoread::before {
+	content: "\f073";
+}
+
+
+/* Number */
+
+.list-table .list-table-data .data.number {
+	width: 20px;
+	transition: opacity .1s ease-in-out;
+} .list-table .list-table-data:hover .data.number {
+	opacity: 0;
+	transition-duration: .2s;
+}
+
+
+/* Image */
+
+.list-table .list-table-data .data.image {
+	width: 40px;
+}
+
+.list-table .list-table-data .data.image .image {
+	width: 30px;
+	height: 30px;
+	border: 2px solid var(--border);
+	border-radius: 50%;
+	box-shadow: var(--shadow-image);
+	object-fit: cover;
+	transform: translateX(0);
+	opacity: 1;
+	transition:
+		transform .1s ease,
+		opacity .1s ease;
+} .list-table .list-table-data:hover .data.image .image {
+	transform: translateX(-30px);
+	opacity: 0;
+	transition-duration: 0.3s;
+}
+
+.data.image a::before {
+	content: "";
+	position: fixed;
+	top: 20%;
+	left: calc(50% - 662px);
+	z-index: 5;
+	display: block;
+	width: 150px;
+	height: 221px;
+	background: center / cover no-repeat var(--list-background-color-1);
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow-soft);
+	transform: translateX(-20px);
+	opacity: 0;
+	transition:
+		opacity .1s ease-out,
+		transform .1s ease-out;
+	pointer-events: none;
+} .list-table .list-table-data:hover .data.image a::before {
+	transform: translateX(0);
+	opacity: 1;
+	transition-duration: .3s;
+}
+
+
+/* Title */
+
+.list-table .list-table-data .data.title {
+	width: 60%;
+	max-width: 450px;
+}
+
+.list-table .list-table-data .data.title .link {
+	display: inline-block;
+	max-width: calc(100% - 54px);
+	overflow: hidden;
+	color: var(--text-color-primary) !important;
+	font: 100 16px/35px var(--font-set-title);
+	text-decoration: none;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	transition:
+		letter-spacing 0.3s ease,
+		text-shadow .1s linear;
+} .list-table .list-table-data:hover .data.title .link {
+	letter-spacing: 0.5px;
+	text-shadow: var(--shadow-heavy);
+}
+
+.list-table .list-table-data .data.title .rewatching,
+.list-table .list-table-data .data.title .rereading,
+.list-table .list-table-data .data.title .content-status {
+	display: inline-block;
+	position: absolute;
+	color: var(--text-color-primary);
+	text-shadow: var(--shadow-status);
+	margin: 10px 0 0 5px;
+}
+
+.icon-watch,
+.icon-watch-pv {
+	display: none !important;
+}
+
+/*  Add/Edit/More */
+
+.add-edit-more {
+	margin-top: 10px;
+	font-size: 0 !important;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+} .list-item:hover .add-edit-more {
+	opacity: 1;
+}
+
+.list-table .list-table-data .data.title .add-edit-more a {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-size: cover;
+	margin-right: 7px;
+} .list-table .list-table-data .data.title .add a {
+	background-image: url(http://i.imgur.com/AoTgUAL.png);
+} .list-table .list-table-data .data.title .edit a {
+	background-image: url(http://i.imgur.com/OT1yCLP.png);
+} .list-table .list-table-data .data.title .more a {
+	background-image: url(http://i.imgur.com/cUAaila.png);
+}
+
+
+/* Score */
+
+.list-table .list-table-data .data.score .link {
+	display: block;
+	width: 21px;
+	height: 21px;
+	background: url(http://i.imgur.com/udzEw6G.png) center / 21px no-repeat;
+	margin: 0 auto;
+	line-height: 21px;
+} .list-table .list-table-data:hover .data.score .link {
+	background-image: url(http://i.imgur.com/EQcGOeO.png);
+	text-shadow: var(--shadow-heavy);
+}
+
+
+/* Progress */
+
+.data.progress,
+.data.chapter,
+.data.volume {
+	white-space: nowrap;
+}
+
+
+/* Tags */
+
+.list-table .list-table-data .data.tags {
+	position: fixed;
+	top: calc(20% + 230px);
+	left: calc(50% - 662px);
+	z-index: 6;
+	width: 152px;
+	height: auto;
+	line-height: 16px;
+	font-family: var(--font-set-tags);
+	text-align: left;
+	transform: translateX(-20px);
+	opacity: 0;
+	transition:
+		opacity .1s ease-out,
+		transform .1s ease-out;
+	pointer-events: none;
+} .list-table .list-table-data:hover .data.tags {
+	transform: translateX(0);
+	opacity: 1;
+	transition-duration: .3s;
+}
+
+.list-table .list-table-data .data.tags div:not(:empty) {
+	padding: 5px;
+	background: var(--hover-background-color);
+	box-shadow: var(--shadow-heavy);
+}
+
+.list-table .list-table-data .data.tags a {
+	color: var(--text-color-primary) !important;
+}
+
+.list-table .list-table-data .tags .edit {
+	display: none;
+}
+
+
+/* Studio */
+
+.list-table .list-table-data .data.studio {
+	position: fixed;
+	top: calc(20% + 222px);
+	left: calc(50% - 661px);
+	z-index: 6;
+	width: 140px;
+	height: auto;
+	min-height: 20px;
+	padding: 5px;
+	background: linear-gradient(to bottom, rgba(0,0,0,0), var(--darkening-color));	
+	font-weight: bold;
+	text-shadow: var(--shadow-heavy);
+	opacity: 0;
+	transform: translate(-20px,-100%);
+	transition:
+		opacity .1s ease-out,
+		transform .1s ease-out;
+	pointer-events: none;
+	
+} .list-table .list-table-data:hover .data.studio {
+	opacity: 1;
+	transform: translate(0,-100%);
+	transition-duration: .3s;
+}
+
+
+/* More Info */
+
+.list-table .more-info {
+	border-bottom: 0;
+}
+
+td.td1.borderRBL {
+	color: var(--text-color-primary);
+}
+
+
+
+/* FOOTER & COPYRIGHT */
+
+#footer-block {
+	background: linear-gradient(to bottom, rgba(0,0,0,0), var(--darkening-color));	
+}
+
+#copyright {
+	font-size: 10px;
+	letter-spacing: 1px;
+	text-shadow: 0px 3px 3px #000;
+	white-space: pre;
+}
+
+#copyright::after {
+	content: "ShelterStyle Refresh - Layout originally designed by Takana no Hana - Refresh made by Valerio Lyndon."
+}
+
+
+
+/* FILTER MENU */
+
+#advanced-options {
+	position: fixed;
+	background: var(--filter-background) center / cover no-repeat var(--menu-background-color);
+	border: none;
+	color: var(--text-color-filter-menu);
+	font-family: var(--font-set-default);
+}
+
+#advanced-options .advanced-options-header {
+	border-color: var(--border-soft);
+}
+
+#advanced-options .sort-widget .widget-header,
+#advanced-options .filter-widget .widget-header {
+	font-family: var(--font-set-default);
+}
+
+#advanced-options .advanced-options-button {
+	border-color: var(--border-soft);
+}
+
+#advanced-options .advanced-options-button a {
+	background: var(--filter-button-background-color);
+	color: var(--text-color-primary);
+} #advanced-options .advanced-options-button a:hover {
+	background: var(--hover-background-color);
+}
+
+
+
+/* RENDERS */
+
+footer::before, footer::after {
+	content: "";
+	position: fixed;
+	bottom: 0;
+	z-index: 3;
+	width: calc(100% - 1000px);
+	height: 80%;
+	min-height: 500px;
+	min-width: 500px;
+	pointer-events: none;
+}
+
+footer::before {
+	right: calc(50% + 350px);
+	background: var(--left-render) center bottom / contain no-repeat;
+}
+
+footer::after {
+	left: calc(50% + 350px);
+	background: var(--right-render) center bottom / contain no-repeat;
+}
+
+
+
+/* 
+ * FURTHER CUSTOMIZATIONS
+ * This is where you can place customizations that may not be practical for everyone.
+ */
