@@ -1,9 +1,9 @@
 /* 
- * ShelterStyle Refresh
+ * Shelter Style Refresh
  * Original layout design by Takana no Hana
- * Refresh made by Valerio Lyndon
- * Based on a modified version by Shishio-kun
- * Last update: 2020-MAR-02
+ * Edits by Shishio-kun
+ * Refresh changes by Valerio Lyndon
+ * Last update: 2022-JUL-07
  */
 
 
@@ -43,11 +43,11 @@
 	--planned-left-render: var(--all-anime-left-render);
 	
 	--all-anime-right-render: url(http://i.imgur.com/MO8goKt.png);
-	--watching-right-render: var(--all-anime-left-render);
-	--completed-right-render: var(--all-anime-left-render);
-	--on-hold-right-render: var(--all-anime-left-render);
-	--dropped-right-render: var(--all-anime-left-render);
-	--planned-right-render: var(--all-anime-left-render);
+	--watching-right-render: var(--all-anime-right-render);
+	--completed-right-render: var(--all-anime-right-render);
+	--on-hold-right-render: var(--all-anime-right-render);
+	--dropped-right-render: var(--all-anime-right-render);
+	--planned-right-render: var(--all-anime-right-render);
 	
 	--filter-background: url(http://i.imgur.com/xD2LRjG.png);
 	
@@ -72,10 +72,10 @@
 	 * higher = more opaque */
 	--banner-opacity: 1;
 	
-	/* Reduces banner fade effect.
-	 * min: 0 / recommended max: 2.43
+	/* Changes banner fade effect.
+	 * min: 0 / recommended max: 1
 	 * higher = more fading */
-	--banner-fade-multiplier: 2.0;
+	--banner-fade-multiplier: 0.41;
 	
 	/* Theme colours
 	 * valid values: any valid CSS colour
@@ -618,8 +618,8 @@ body.ownlist {
 	height: calc(var(--banner-height) - 35px);
 	background: var(--banner) center / cover no-repeat;
 	opacity: var(--banner-opacity);
-	-webkit-mask: linear-gradient(to top, rgba(0,0,0,0), #000 calc(41% * var(--banner-fade-multiplier)));
-	mask: linear-gradient(to top, rgba(0,0,0,0), #000 calc(41% * var(--banner-fade-multiplier)));
+	-webkit-mask: linear-gradient(to top, rgba(0,0,0,0), #000 calc(100% * var(--banner-fade-multiplier)));
+	mask: linear-gradient(to top, rgba(0,0,0,0), #000 calc(100% * var(--banner-fade-multiplier)));
 }
 
 
@@ -895,11 +895,11 @@ body.ownlist {
 }
 
 .list-table .list-table-data .data.title .link {
-	display: inline-block;
-	max-width: calc(100% - 54px);
+	max-width: calc(100% - 54px - 20px);
+	float: left;
 	overflow: hidden;
 	color: var(--text-color-primary) !important;
-	font: 100 16px/35px var(--font-set-title);
+	font: 400 16px/35px var(--font-set-title);
 	text-decoration: none;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -914,16 +914,25 @@ body.ownlist {
 .list-table .list-table-data .data.title .rewatching,
 .list-table .list-table-data .data.title .rereading,
 .list-table .list-table-data .data.title .content-status {
-	display: inline-block;
 	position: absolute;
 	color: var(--text-color-primary);
 	text-shadow: var(--shadow-status);
 	margin: 10px 0 0 5px;
 }
 
-.icon-watch,
-.icon-watch-pv {
-	display: none !important;
+.icon-watch2 {
+	width: 15px;
+	height: 15px;
+	float: left;
+	margin: 10px 0 0 2.5px;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+} .list-item:hover .icon-watch2 {
+	opacity: 1;
+}
+
+.icon-watch2 .malicon {
+	color: var(--text-color-primary) !important;
 }
 
 /*  Add/Edit/More */
@@ -1059,17 +1068,35 @@ td.td1.borderRBL {
 
 #footer-block {
 	background: linear-gradient(to bottom, rgba(0,0,0,0), var(--darkening-color));	
+	text-shadow: 0px 3px 3px #000;
+	letter-spacing: 1px;
 }
 
 #copyright {
 	font-size: 10px;
-	letter-spacing: 1px;
-	text-shadow: 0px 3px 3px #000;
 	white-space: pre;
 }
 
 #copyright::after {
-	content: "ShelterStyle Refresh - Layout originally designed by Takana no Hana - Refresh made by Valerio Lyndon."
+	content: "Shelter Style Refresh - Layout originally designed by Takana no Hana - Edits by Shishio-kun - Refresh made by Valerio Lyndon."
+}
+
+
+
+/* STREAMING MENU */
+
+.mal-modal .mal-modal-dialog .mal-modal-content {
+	background: var(--menu-background-color);
+	color: var(--text-color-alt);
+}
+
+.mal-modal .broadcast a {
+	color: inherit !important;
+}
+
+.mal-modal .broadcast a:hover {
+	color: var(--text-color-primary) !important;
+	background: var(--hover-background-color) !important;
 }
 
 
@@ -1136,3 +1163,4 @@ footer::after {
  * FURTHER CUSTOMIZATIONS
  * This is where you can place customizations that may not be practical for everyone.
  */
+
