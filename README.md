@@ -30,6 +30,8 @@
 - Fixed cursor not working for logged out users.
 - Fixed some overlap on sort-by dropdown.
 - Fixed user menu layering underneath sort menu.
+- Fixed footer width issue on Microsoft Edge.
+- Fixed visual padding on some list styles which contain an extra div.
 - Removed a lot of unnecessary code, CSS is approximately 42% smaller before any minification tools.
 - (Line Style) Fixed long titles causing overflow on hover.
 
