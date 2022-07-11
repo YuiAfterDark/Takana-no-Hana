@@ -29,11 +29,13 @@
 	--filter-background: url(http://i.imgur.com/xD2LRjG.png);
 	
 	--cursor: url(https://i.imgur.com/iAvGz1j.png);
+	--cursor-link: var(--cursor);
 	
 	/* Change the amount the cursor is offset from its default placement.
 	 * Useful for when cursor images have a lot of white space on the edges 
 	 * valid values: two numbers relating to the <x> and <y> position e.x: 3 1 */
 	--cursor-offset: 2 2;
+	--cursor-link-offset: var(--cursor-offset);
 	
 	/* Change banner quote
 	 * valid values: "Quote-surrounded sentence or text" */
@@ -126,9 +128,12 @@
 /* BASIC PAGE SETTINGS */
 
 * {
-	cursor: var(--cursor) var(--cursor-offset), default !important;
+	cursor: var(--cursor) var(--cursor-offset), default;
 	scrollbar-color: var(--scroll-bar) var(--scroll-background);
 	scrollbar-width: thin;
+}
+a:not(.edit-disabled) {
+	cursor: var(--cursor-link) var(--cursor-link-offset), pointer;
 }
 
 ::-webkit-scrollbar {
