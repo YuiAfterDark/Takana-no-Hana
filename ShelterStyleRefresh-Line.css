@@ -8,7 +8,8 @@
  */
 
 
-@\import "https://malscraper.azurewebsites.net/covers/auto/presets/dataimagelinkbefore";
+@\import "https://malscraper.azurewebsites.net/covers/all/anime/presets/dataimagelinkbefore";
+@\import "https://malscraper.azurewebsites.net/covers/all/manga/presets/dataimagelinkbefore";
 @\import "https://fonts.googleapis.com/css?family=Rancho|PT+Sans+Narrow";
 
 
@@ -21,35 +22,10 @@
 	 * valid values: url(IMAGEURL) / none */
 	
 	--banner-avatar: url(http://i.imgur.com/AYGqofj.png);
-	
-	--all-anime-background: url(http://i.imgur.com/vuarwtS.jpg);
-	--watching-background: var(--all-anime-background);
-	--completed-background: var(--all-anime-background);
-	--on-hold-background: var(--all-anime-background);
-	--dropped-background: var(--all-anime-background);
-	--planned-background: var(--all-anime-background);
-	
-	--all-anime-banner: url(http://i.imgur.com/kAGfZRq.png);
-	--watching-banner: var(--all-anime-banner);
-	--completed-banner: var(--all-anime-banner);
-	--on-hold-banner: var(--all-anime-banner);
-	--dropped-banner: var(--all-anime-banner);
-	--planned-banner: var(--all-anime-banner);
-	
-	--all-anime-left-render: url(http://i.imgur.com/MO8goKt.png);
-	--watching-left-render: var(--all-anime-left-render);
-	--completed-left-render: var(--all-anime-left-render);
-	--on-hold-left-render: var(--all-anime-left-render);
-	--dropped-left-render: var(--all-anime-left-render);
-	--planned-left-render: var(--all-anime-left-render);
-	
-	--all-anime-right-render: url(http://i.imgur.com/MO8goKt.png);
-	--watching-right-render: var(--all-anime-right-render);
-	--completed-right-render: var(--all-anime-right-render);
-	--on-hold-right-render: var(--all-anime-right-render);
-	--dropped-right-render: var(--all-anime-right-render);
-	--planned-right-render: var(--all-anime-right-render);
-	
+	--background: url(http://i.imgur.com/vuarwtS.jpg);
+	--banner: url(http://i.imgur.com/kAGfZRq.png);
+	--left-render: url(http://i.imgur.com/MO8goKt.png);
+	--right-render: url(http://i.imgur.com/MO8goKt.png);
 	--filter-background: url(http://i.imgur.com/xD2LRjG.png);
 	
 	--cursor: url(https://i.imgur.com/iAvGz1j.png);
@@ -172,38 +148,6 @@ a {
 a:hover {
 	color: var(--text-color-primary) !important;
 	text-decoration: none;
-}
-
-body[data-query*='status":7'] {
-	--background: var(--all-anime-background);
-	--banner: var(--all-anime-banner);
-	--left-render: var(--all-anime-left-render);
-	--right-render: var(--all-anime-right-render);
-} body[data-query*='status":1'] {
-	--background: var(--watching-background);
-	--banner: var(--watching-banner);
-	--left-render: var(--watching-left-render);
-	--right-render: var(--watching-right-render);
-} body[data-query*='status":2'] {
-	--background: var(--completed-background);
-	--banner: var(--completed-banner);
-	--left-render: var(--completed-left-render);
-	--right-render: var(--completed-right-render);
-} body[data-query*='status":3'] {
-	--background: var(--on-hold-background);
-	--banner: var(--on-hold-banner);
-	--left-render: var(--on-hold-left-render);
-	--right-render: var(--on-hold-right-render);
-} body[data-query*='status":4'] {
-	--background: var(--dropped-background);
-	--banner: var(--dropped-banner);
-	--left-render: var(--dropped-left-render);
-	--right-render: var(--dropped-right-render);
-} body[data-query*='status":6'] {
-	--background: var(--planned-background);
-	--banner: var(--planned-banner);
-	--left-render: var(--planned-left-render);
-	--right-render: var(--planned-right-render);
 }
 
 body.ownlist {
