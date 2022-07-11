@@ -1,0 +1,703 @@
+{
+	"json_version": 0.2,
+	"data": {
+		"name": "Shelter Style Refresh - Line Ver.",
+		"author": "Takana no Hana",
+		"css": "https://dl.dropboxusercontent.com/s/8vaigvmzs926if0/ShelterStyleRefresh-Line.css",
+		"type": "modern",
+		"options": {
+			"username": {
+				"name": "Your MAL Username",
+				"description": "Must be entered exactly as it appears on MyAnimeList. This is not required, but will reduce the impact on page load times from the pop-up images.",
+				"type": "text",
+				"replacements": [
+					["all/anime/presets", "anime/{{{insert}}}/presets"],
+					["all/manga/presets", "manga/{{{insert}}}/presets"]
+				]
+			},
+			"avatar": {
+				"name": "Avatar Image",
+				"type": "text/image_url",
+				"replacements": [["--banner-avatar: url(http://i.imgur.com/AYGqofj.png)", "--banner-avatar: {{{insert}}}"]],
+				"default": "http://i.imgur.com/AYGqofj.png"
+			},
+			"background": {
+				"name": "Background Image",
+				"type": "text/image_url",
+				"replacements": [["--background: url(http://i.imgur.com/vuarwtS.jpg)", "--background: {{{insert}}}"]],
+				"default": "http://i.imgur.com/vuarwtS.jpg"
+			},
+			"banner": {
+				"name": "Banner Image",
+				"type": "text/image_url",
+				"replacements": [["--banner: url(http://i.imgur.com/kAGfZRq.png)", "--banner: {{{insert}}}"]],
+				"default": "http://i.imgur.com/kAGfZRq.png"
+			},
+			"left-render": {
+				"name": "Left Character Image",
+				"type": "text/image_url",
+				"replacements": [["--left-render: url(http://i.imgur.com/MO8goKt.png)", "--left-render: {{{insert}}}"]],
+				"default": "http://i.imgur.com/MO8goKt.png"
+			},
+			"right-render": {
+				"name": "Right Character Image",
+				"type": "text/image_url",
+				"replacements": [["--right-render: url(http://i.imgur.com/MO8goKt.png)", "--right-render: {{{insert}}}"]],
+				"default": "http://i.imgur.com/MO8goKt.png"
+			},
+			"filter-background": {
+				"name": "Filter Background Image",
+				"type": "text/image_url",
+				"replacements": [["--filter-background: url(http://i.imgur.com/xD2LRjG.png)", "--filter-background: {{{insert}}}"]],
+				"default": "http://i.imgur.com/xD2LRjG.png"
+			},
+			"quote": {
+				"name": "Quote Text",
+				"type": "text/content",
+				"replacements": [["--banner-quote: \"Your Quote Here!\"", "--banner-quote: {{{insert}}}"]],
+				"default": "Your Quote Here!"
+			},
+			"banner-fade-multiplier": {
+				"name": "Banner Fade Multiplier",
+				"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+				"type": "text",
+				"replacements": [["--banner-fade-multiplier: 0.41", "--banner-fade-multiplier: {{{insert}}}"]],
+				"default": "0.41"
+			},
+			"banner-opacity": {
+				"name": "Banner Opacity",
+				"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+				"type": "text/value/opacity",
+				"replacements": [["--banner-opacity: 1", "--banner-opacity: {{{insert}}}"]],
+				"default": "1"
+			},
+			"banner-height": {
+				"name": "Banner Height",
+				"description": "Recommended minimum of 35px.",
+				"type": "text/size",
+				"replacements": [["--banner-height: 400px", "--banner-height: {{{insert}}}"]],
+				"default": "400px"
+			},
+			"cursor": {
+				"name": "Cursor",
+				"description": "An image URL for a custom cursor.",
+				"type": "text/image_url",
+				"replacements": [["--cursor: url(https://i.imgur.com/iAvGz1j.png)", "--cursor: {{{insert}}}"]],
+				"default": "https://i.imgur.com/iAvGz1j.png"
+			},
+			"cursor-pos": {
+				"name": "Cursor Position",
+				"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+				"type": "text/value/cursor",
+				"replacements": [["--cursor-offset: 2 2", "--cursor-offset: {{{insert}}}"]],
+				"default": "2 2"
+			},
+			"cursor-link": {
+				"name": "Cursor for Links",
+				"description": "This cursor will display while hovering over links.",
+				"type": "text/image_url",
+				"replacements": [["--cursor-link: var(--cursor)", "--cursor-link: {{{insert}}}"]]
+			},
+			"cursor-link-pos": {
+				"name": "Cursor Position for Links",
+				"type": "text/value/cursor",
+				"replacements": [["--cursor-link-offset: var(--cursor-offset)", "--cursor-link-offset: {{{insert}}}"]]
+			}
+		},
+		"mods": {
+			"all-anime": {
+				"name": "Per-Category Styling (All Anime)",
+				"description": "Style your page differently while viewing the All Anime page.",
+				"css": {"bottom": "body[data-query*='\"status\":7'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"all-anime": {
+				"name": "Per-Category Styling (All Anime)",
+				"description": "Style your page differently while viewing the All Anime page.",
+				"css": {"bottom": "body[data-query*='\"status\":7'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"watching": {
+				"name": "Per-Category Styling (Watching)",
+				"description": "Style your page differently while viewing the Watching page.",
+				"css": {"bottom": "body[data-query*='\"status\":1'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"completed": {
+				"name": "Per-Category Styling (Completed)",
+				"description": "Style your page differently while viewing the Completed page.",
+				"css": {"bottom": "body[data-query*='\"status\":2'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"on-hold": {
+				"name": "Per-Category Styling (On Hold)",
+				"description": "Style your page differently while viewing the On Hold page.",
+				"css": {"bottom": "body[data-query*='\"status\":3'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"dropped": {
+				"name": "Per-Category Styling (Dropped)",
+				"description": "Style your page differently while viewing the Dropped page.",
+				"css": {"bottom": "body[data-query*='\"status\":4'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"plan-to-watch": {
+				"name": "Per-Category Styling (Plan to Watch)",
+				"description": "Style your page differently while viewing the Plan to Watch page.",
+				"css": {"bottom": "body[data-query*='\"status\":6'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"fonts": {
+				"name": "Change fonts",
+				"description": "This guide by Shishio-kun will show you how to change the fonts!",
+				"url": "https://www.youtube.com/watch?v=5IGsUjxjwnk"
+			}
+		}
+	}
+}
