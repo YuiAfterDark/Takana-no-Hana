@@ -4,7 +4,7 @@
  * Edits by Shishio-kun
  * Refresh changes by Valerio Lyndon
  * 
- * v0.2.0 (2022-JUL-07)
+ * v0.2.1 (2022-JUL-21)
  */
 
 
@@ -64,7 +64,6 @@
 	--menu-background-color: rgba(255,255,255,.9);
 	--list-background-color-1: rgba(0,0,0,.3);
 	--list-background-color-2: rgba(0,0,0,.4);
-	--nav-background-color: var(--list-background-color-2);
 	--nav-dropdown-background-color: rgb(223,233,233,0.9);
 	--filter-button-background-color: rgba(0,0,0,0.8);
 	--hover-background-color: rgba(0,0,0,.5);
@@ -525,7 +524,7 @@ body.ownlist {
 	font: 500 22px var(--font-set-default);
 	text-align: center;
 	letter-spacing: 0.5px;
-	text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000;
+	text-shadow: var(--shadow-heavy);
 }
 
 .list-unit .list-status-title .stats {
@@ -688,6 +687,10 @@ body.ownlist {
 	font-size: 20px;
 	line-height: 43px;
 }
+
+
+
+/* LIST ITEMS */
 
 .list-unit .list-stats {
 	position: absolute;
