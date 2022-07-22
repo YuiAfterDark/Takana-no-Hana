@@ -4,7 +4,7 @@
  * Edits by Shishio-kun
  * Refresh changes by Valerio Lyndon
  * 
- * v0.1.0 (2022-JUL-21)
+ * v0.2.0 (2022-JUL-21)
  */
 
 
@@ -374,14 +374,16 @@ body.ownlist {
 
 .cover-block .image-container {
 	display: block;
-	width: 1200px;
+	width: 100%;
 	padding: 0;
 }
 
 #cover-image {
-	width: 1200px;
+	width: 1176px;
 	max-width: initial;
 	height: auto;
+	box-shadow: var(--shadow-heavy);
+	margin-bottom: 15px;
 	object-fit: cover;
 }
 
@@ -756,10 +758,10 @@ body.ownlist {
 	position: relative;
 	height: 285px;
 	width: 182px;
+	background: var(--list-background-color-2) !important;
 	border: 1px solid transparent;
-	box-sizing: border-box;
-	background: var(--list-background-color-2);
 	margin: 7px;
+	box-sizing: border-box;
 	float: left;
 	transition: all .1s ease-in-out;
 } .list-item:hover {
@@ -1127,7 +1129,7 @@ body.ownlist {
 	z-index: 25;
 	pointer-events: none;
 }
-.list-table .list-table-data .data.tags a {
+#list-container .data.tags a {
 	color: var(--text-color-inverse) !important;
 	font-size: 1em;
 }
