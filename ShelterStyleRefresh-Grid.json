@@ -1,0 +1,1160 @@
+{
+	"json_version": 0.2,
+	"data": {
+		"name": "Shelter Style Refresh - Grid Ver.",
+		"author": "Takana no Hana",
+		"css": "https://dl.dropboxusercontent.com/s/740jhfdpcc20zpe/ShelterStyleRefresh-Grid.css",
+		"type": "modern",
+		"columns": {
+			"mode": "greylist",
+			"animelist": {
+				"Image": true,
+				"Score": true,
+				"Episodes": true
+			},
+			"mangalist": {
+				"Image": true,
+				"Score": true,
+				"Volumes": true
+			}
+		},
+		"options": {
+			"username": {
+				"name": "Your MAL Username",
+				"description": "Must be entered exactly as it appears on MyAnimeList. This is not required, but will reduce the impact on page load times from the pop-up images.",
+				"type": "text",
+				"replacements": [
+					["all/anime/presets", "anime/{{{insert}}}/presets"],
+					["all/manga/presets", "manga/{{{insert}}}/presets"]
+				]
+			},
+			"avatar": {
+				"name": "Avatar Image",
+				"type": "text/image_url",
+				"replacements": [["--banner-avatar: url(http://i.imgur.com/GH6BMvr.gif)", "--banner-avatar: {{{insert}}}"]],
+				"default": "http://i.imgur.com/GH6BMvr.gif"
+			},
+			"background": {
+				"name": "Background Image",
+				"type": "text/image_url",
+				"replacements": [["--background: url(http://i.imgur.com/VTrW1N1.jpg)", "--background: {{{insert}}}"]],
+				"default": "http://i.imgur.com/VTrW1N1.jpg"
+			},
+			"banner": {
+				"name": "Banner Image",
+				"type": "text/image_url",
+				"replacements": [["--banner: url(http://i.imgur.com/W6iKnWb.png)", "--banner: {{{insert}}}"]],
+				"default": "http://i.imgur.com/W6iKnWb.png"
+			},
+			"left-render": {
+				"name": "Left Character Image",
+				"type": "text/image_url",
+				"replacements": [["--left-render: none", "--left-render: {{{insert}}}"]]
+			},
+			"right-render": {
+				"name": "Right Character Image",
+				"type": "text/image_url",
+				"replacements": [["--right-render: url(https://i.imgur.com/kOR31IF.png)", "--right-render: {{{insert}}}"]],
+				"default": "https://i.imgur.com/kOR31IF.png"
+			},
+			"filter-background": {
+				"name": "Filter Background Image",
+				"type": "text/image_url",
+				"replacements": [["--filter-background: url(https://i.imgur.com/h0VRsRc.png)", "--filter-background: {{{insert}}}"]],
+				"default": "https://i.imgur.com/h0VRsRc.png"
+			},
+			"quote": {
+				"name": "Quote Text",
+				"type": "text/content",
+				"replacements": [["\"I won't let go of you - I'll never let go again ... This hand was finally able to catch you!\"", "{{{insert}}}"]],
+				"default": "Your Quote Here!"
+			},
+			"quote-size": {
+				"name": "Quote Text Size",
+				"type": "text/value/font-size",
+				"replacements": [["18px var(--font-set-quote)", "{{{insert}}} var(--font-set-quote)"]],
+				"default": "18px"
+			},
+			"banner-fade-multiplier": {
+				"name": "Banner Fade Multiplier",
+				"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+				"type": "text",
+				"replacements": [["--banner-fade-multiplier: 0.41", "--banner-fade-multiplier: {{{insert}}}"]],
+				"default": "0.41"
+			},
+			"banner-opacity": {
+				"name": "Banner Opacity",
+				"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+				"type": "text/value/opacity",
+				"replacements": [["--banner-opacity: 1", "--banner-opacity: {{{insert}}}"]],
+				"default": "1"
+			},
+			"banner-height": {
+				"name": "Banner Height",
+				"description": "Recommended minimum of 35px.",
+				"type": "text/size",
+				"replacements": [["--banner-height: 500px", "--banner-height: {{{insert}}}"]],
+				"default": "500px"
+			},
+			"cursor": {
+				"name": "Cursor",
+				"description": "An image URL for a custom cursor.",
+				"type": "text/image_url",
+				"replacements": [["--cursor: url(https://i.imgur.com/iAvGz1j.png)", "--cursor: {{{insert}}}"]],
+				"default": "https://i.imgur.com/iAvGz1j.png"
+			},
+			"cursor-pos": {
+				"name": "Cursor Position",
+				"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+				"type": "text/value/cursor",
+				"replacements": [["--cursor-offset: 2 2", "--cursor-offset: {{{insert}}}"]],
+				"default": "2 2"
+			},
+			"cursor-link": {
+				"name": "Cursor for Links",
+				"description": "This cursor will display while hovering over links.",
+				"type": "text/image_url",
+				"replacements": [["--cursor-link: var(--cursor)", "--cursor-link: {{{insert}}}"]]
+			},
+			"cursor-link-pos": {
+				"name": "Cursor Position for Links",
+				"type": "text/value/cursor",
+				"replacements": [["--cursor-link-offset: var(--cursor-offset)", "--cursor-link-offset: {{{insert}}}"]]
+			},
+			"menu-greyscale": {
+				"name": "Category Menu Greyscale",
+				"description": "Modify the strength of the greyscale effect for disabled menu images. 0% for no greyscale.",
+				"type": "text/value",
+				"replacements": [["grayscale(100%)", "grayscale({{{insert}}})"]],
+				"default": "100%"
+			},
+			"menu-all": {
+				"name": "Category Menu - All Anime",
+				"type": "text/image_url",
+				"replacements": [["--menu-all: url(http://i.imgur.com/DLLqSTd.png)", "--menu-all: {{{insert}}}"]],
+				"default": "http://i.imgur.com/DLLqSTd.png"
+			},
+			"menu-all-sel": {
+				"name": "Category Menu - All Anime (Selected)",
+				"type": "text/image_url",
+				"replacements": [["--menu-all-sel: url(http://i.imgur.com/aKqWN3u.gif)", "--menu-all-sel: {{{insert}}}"]],
+				"default": "http://i.imgur.com/aKqWN3u.gif"
+			},
+			"menu-current": {
+				"name": "Category Menu - Current",
+				"type": "text/image_url",
+				"replacements": [["--menu-current: url(http://i.imgur.com/5pPg4ac.png)", "--menu-current: {{{insert}}}"]],
+				"default": "http://i.imgur.com/5pPg4ac.png"
+			},
+			"menu-current-sel": {
+				"name": "Category Menu - Current (Selected)",
+				"type": "text/image_url",
+				"replacements": [["--menu-current-sel: url(http://i.imgur.com/WESHf5N.gif)", "--menu-current-sel: {{{insert}}}"]],
+				"default": "http://i.imgur.com/WESHf5N.gif"
+			},
+			"menu-completed": {
+				"name": "Category Menu - Completed",
+				"type": "text/image_url",
+				"replacements": [["--menu-completed: url(http://i.imgur.com/RlcbKxj.png)", "--menu-completed: {{{insert}}}"]],
+				"default": "http://i.imgur.com/RlcbKxj.png"
+			},
+			"menu-completed-sel": {
+				"name": "Category Menu - Completed (Selected)",
+				"type": "text/image_url",
+				"replacements": [["--menu-completed-sel: url(http://i.imgur.com/UMovoVS.gif)", "--menu-completed-sel: {{{insert}}}"]],
+				"default": "http://i.imgur.com/UMovoVS.gif"
+			},
+			"menu-onhold": {
+				"name": "Category Menu - On Hold",
+				"type": "text/image_url",
+				"replacements": [["--menu-onhold: url(http://i.imgur.com/ASPp5y9.png)", "--menu-onhold: {{{insert}}}"]],
+				"default": "http://i.imgur.com/ASPp5y9.png"
+			},
+			"menu-onhold-sel": {
+				"name": "Category Menu - On Hold (Selected)",
+				"type": "text/image_url",
+				"replacements": [["--menu-onhold-sel: url(http://i.imgur.com/ouJqNKc.gif)", "--menu-onhold-sel: {{{insert}}}"]],
+				"default": "http://i.imgur.com/ouJqNKc.gif"
+			},
+			"menu-dropped": {
+				"name": "Category Menu - Dropped",
+				"type": "text/image_url",
+				"replacements": [["--menu-dropped: url(http://i.imgur.com/aTKLiQg.png)", "--menu-dropped: {{{insert}}}"]],
+				"default": "http://i.imgur.com/aTKLiQg.png"
+			},
+			"menu-dropped-sel": {
+				"name": "Category Menu - Dropped (Selected)",
+				"type": "text/image_url",
+				"replacements": [["--menu-dropped-sel: url(http://i.imgur.com/sRPU8yp.gif)", "--menu-dropped-sel: {{{insert}}}"]],
+				"default": "http://i.imgur.com/sRPU8yp.gif"
+			},
+			"menu-planned": {
+				"name": "Category Menu - Planned",
+				"type": "text/image_url",
+				"replacements": [["--menu-planned: url(http://i.imgur.com/BBHhd2Z.png)", "--menu-planned: {{{insert}}}"]],
+				"default": "http://i.imgur.com/BBHhd2Z.png"
+			},
+			"menu-planned-sel": {
+				"name": "Category Menu - Planned (Selected)",
+				"type": "text/image_url",
+				"replacements": [["--menu-planned-sel: url(http://i.imgur.com/zJYQb4x.gif)", "--menu-planned-sel: {{{insert}}}"]],
+				"default": "http://i.imgur.com/zJYQb4x.gif"
+			}
+		},
+		"mods": {
+			"all-anime": {
+				"name": "Per-Category Styling (All Anime)",
+				"description": "Style your page differently while viewing the All Anime page.",
+				"css": {"bottom": "body[data-query*='\"status\":7'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"all-anime": {
+				"name": "Per-Category Styling (All Anime)",
+				"description": "Style your page differently while viewing the All Anime page.",
+				"css": {"bottom": "body[data-query*='\"status\":7'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					},
+					"menu-all": {
+						"name": "Category Menu - All Anime",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all: {{{insert}}};\n}"]]
+					},
+					"menu-all-sel": {
+						"name": "Category Menu - All Anime (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all-sel: {{{insert}}};\n}"]]
+					},
+					"menu-current": {
+						"name": "Category Menu - Current",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current: {{{insert}}};\n}"]]
+					},
+					"menu-current-sel": {
+						"name": "Category Menu - Current (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current-sel: {{{insert}}};\n}"]]
+					},
+					"menu-completed": {
+						"name": "Category Menu - Completed",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed: {{{insert}}};\n}"]]
+					},
+					"menu-completed-sel": {
+						"name": "Category Menu - Completed (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed-sel: {{{insert}}};\n}"]]
+					},
+					"menu-onhold": {
+						"name": "Category Menu - On Hold",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold: {{{insert}}};\n}"]]
+					},
+					"menu-onhold-sel": {
+						"name": "Category Menu - On Hold (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold-sel: {{{insert}}};\n}"]]
+					},
+					"menu-dropped": {
+						"name": "Category Menu - Dropped",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped: {{{insert}}};\n}"]]
+					},
+					"menu-dropped-sel": {
+						"name": "Category Menu - Dropped (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped-sel: {{{insert}}};\n}"]]
+					},
+					"menu-planned": {
+						"name": "Category Menu - Planned",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned: {{{insert}}};\n}"]]
+					},
+					"menu-planned-sel": {
+						"name": "Category Menu - Planned (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned-sel: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"watching": {
+				"name": "Per-Category Styling (Watching)",
+				"description": "Style your page differently while viewing the Watching page.",
+				"css": {"bottom": "body[data-query*='\"status\":1'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					},
+					"menu-all": {
+						"name": "Category Menu - All Anime",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all: {{{insert}}};\n}"]]
+					},
+					"menu-all-sel": {
+						"name": "Category Menu - All Anime (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all-sel: {{{insert}}};\n}"]]
+					},
+					"menu-current": {
+						"name": "Category Menu - Current",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current: {{{insert}}};\n}"]]
+					},
+					"menu-current-sel": {
+						"name": "Category Menu - Current (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current-sel: {{{insert}}};\n}"]]
+					},
+					"menu-completed": {
+						"name": "Category Menu - Completed",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed: {{{insert}}};\n}"]]
+					},
+					"menu-completed-sel": {
+						"name": "Category Menu - Completed (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed-sel: {{{insert}}};\n}"]]
+					},
+					"menu-onhold": {
+						"name": "Category Menu - On Hold",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold: {{{insert}}};\n}"]]
+					},
+					"menu-onhold-sel": {
+						"name": "Category Menu - On Hold (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold-sel: {{{insert}}};\n}"]]
+					},
+					"menu-dropped": {
+						"name": "Category Menu - Dropped",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped: {{{insert}}};\n}"]]
+					},
+					"menu-dropped-sel": {
+						"name": "Category Menu - Dropped (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped-sel: {{{insert}}};\n}"]]
+					},
+					"menu-planned": {
+						"name": "Category Menu - Planned",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned: {{{insert}}};\n}"]]
+					},
+					"menu-planned-sel": {
+						"name": "Category Menu - Planned (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned-sel: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"completed": {
+				"name": "Per-Category Styling (Completed)",
+				"description": "Style your page differently while viewing the Completed page.",
+				"css": {"bottom": "body[data-query*='\"status\":2'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					},
+					"menu-all": {
+						"name": "Category Menu - All Anime",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all: {{{insert}}};\n}"]]
+					},
+					"menu-all-sel": {
+						"name": "Category Menu - All Anime (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all-sel: {{{insert}}};\n}"]]
+					},
+					"menu-current": {
+						"name": "Category Menu - Current",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current: {{{insert}}};\n}"]]
+					},
+					"menu-current-sel": {
+						"name": "Category Menu - Current (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current-sel: {{{insert}}};\n}"]]
+					},
+					"menu-completed": {
+						"name": "Category Menu - Completed",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed: {{{insert}}};\n}"]]
+					},
+					"menu-completed-sel": {
+						"name": "Category Menu - Completed (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed-sel: {{{insert}}};\n}"]]
+					},
+					"menu-onhold": {
+						"name": "Category Menu - On Hold",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold: {{{insert}}};\n}"]]
+					},
+					"menu-onhold-sel": {
+						"name": "Category Menu - On Hold (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold-sel: {{{insert}}};\n}"]]
+					},
+					"menu-dropped": {
+						"name": "Category Menu - Dropped",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped: {{{insert}}};\n}"]]
+					},
+					"menu-dropped-sel": {
+						"name": "Category Menu - Dropped (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped-sel: {{{insert}}};\n}"]]
+					},
+					"menu-planned": {
+						"name": "Category Menu - Planned",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned: {{{insert}}};\n}"]]
+					},
+					"menu-planned-sel": {
+						"name": "Category Menu - Planned (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned-sel: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"on-hold": {
+				"name": "Per-Category Styling (On Hold)",
+				"description": "Style your page differently while viewing the On Hold page.",
+				"css": {"bottom": "body[data-query*='\"status\":3'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					},
+					"menu-all": {
+						"name": "Category Menu - All Anime",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all: {{{insert}}};\n}"]]
+					},
+					"menu-all-sel": {
+						"name": "Category Menu - All Anime (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all-sel: {{{insert}}};\n}"]]
+					},
+					"menu-current": {
+						"name": "Category Menu - Current",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current: {{{insert}}};\n}"]]
+					},
+					"menu-current-sel": {
+						"name": "Category Menu - Current (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current-sel: {{{insert}}};\n}"]]
+					},
+					"menu-completed": {
+						"name": "Category Menu - Completed",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed: {{{insert}}};\n}"]]
+					},
+					"menu-completed-sel": {
+						"name": "Category Menu - Completed (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed-sel: {{{insert}}};\n}"]]
+					},
+					"menu-onhold": {
+						"name": "Category Menu - On Hold",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold: {{{insert}}};\n}"]]
+					},
+					"menu-onhold-sel": {
+						"name": "Category Menu - On Hold (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold-sel: {{{insert}}};\n}"]]
+					},
+					"menu-dropped": {
+						"name": "Category Menu - Dropped",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped: {{{insert}}};\n}"]]
+					},
+					"menu-dropped-sel": {
+						"name": "Category Menu - Dropped (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped-sel: {{{insert}}};\n}"]]
+					},
+					"menu-planned": {
+						"name": "Category Menu - Planned",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned: {{{insert}}};\n}"]]
+					},
+					"menu-planned-sel": {
+						"name": "Category Menu - Planned (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned-sel: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"dropped": {
+				"name": "Per-Category Styling (Dropped)",
+				"description": "Style your page differently while viewing the Dropped page.",
+				"css": {"bottom": "body[data-query*='\"status\":4'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					},
+					"menu-all": {
+						"name": "Category Menu - All Anime",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all: {{{insert}}};\n}"]]
+					},
+					"menu-all-sel": {
+						"name": "Category Menu - All Anime (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all-sel: {{{insert}}};\n}"]]
+					},
+					"menu-current": {
+						"name": "Category Menu - Current",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current: {{{insert}}};\n}"]]
+					},
+					"menu-current-sel": {
+						"name": "Category Menu - Current (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current-sel: {{{insert}}};\n}"]]
+					},
+					"menu-completed": {
+						"name": "Category Menu - Completed",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed: {{{insert}}};\n}"]]
+					},
+					"menu-completed-sel": {
+						"name": "Category Menu - Completed (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed-sel: {{{insert}}};\n}"]]
+					},
+					"menu-onhold": {
+						"name": "Category Menu - On Hold",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold: {{{insert}}};\n}"]]
+					},
+					"menu-onhold-sel": {
+						"name": "Category Menu - On Hold (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold-sel: {{{insert}}};\n}"]]
+					},
+					"menu-dropped": {
+						"name": "Category Menu - Dropped",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped: {{{insert}}};\n}"]]
+					},
+					"menu-dropped-sel": {
+						"name": "Category Menu - Dropped (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped-sel: {{{insert}}};\n}"]]
+					},
+					"menu-planned": {
+						"name": "Category Menu - Planned",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned: {{{insert}}};\n}"]]
+					},
+					"menu-planned-sel": {
+						"name": "Category Menu - Planned (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned-sel: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"plan-to-watch": {
+				"name": "Per-Category Styling (Plan to Watch)",
+				"description": "Style your page differently while viewing the Plan to Watch page.",
+				"css": {"bottom": "body[data-query*='\"status\":6'] {\n}"},
+				"options": {
+					"avatar": {
+						"name": "Avatar Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner-avatar: {{{insert}}};\n}"]]
+					},
+					"background": {
+						"name": "Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--background: {{{insert}}};\n}"]]
+					},
+					"banner": {
+						"name": "Banner Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--banner: {{{insert}}};\n}"]]
+					},
+					"left-render": {
+						"name": "Left Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--left-render: {{{insert}}};\n}"]]
+					},
+					"right-render": {
+						"name": "Right Character Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--right-render: {{{insert}}};\n}"]]
+					},
+					"filter-background": {
+						"name": "Filter Background Image",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--filter-background: {{{insert}}};\n}"]]
+					},
+					"quote": {
+						"name": "Quote Text",
+						"type": "text/content",
+						"replacements": [["}", "\t--banner-quote: {{{insert}}};\n}"]]
+					},
+					"banner-fade-multiplier": {
+						"name": "Banner Fade Multiplier",
+						"description": "Modifies the banner fade effect. Higher = more fade. Min 0 & recommended max 1.",
+						"type": "text",
+						"replacements": [["}", "\t--banner-fade-multiplier: {{{insert}}};\n}"]]
+					},
+					"banner-opacity": {
+						"name": "Banner Opacity",
+						"description": "Similar to the banner fade, however this control the opacity of the entire image. Can be used in tandem.",
+						"type": "text/value/opacity",
+						"replacements": [["}", "\t--banner-opacity: {{{insert}}};\n}"]]
+					},
+					"banner-height": {
+						"name": "Banner Height",
+						"description": "Recommended minimum of 35px.",
+						"type": "text/size",
+						"replacements": [["}", "\t--banner-height: {{{insert}}};\n}"]]
+					},
+					"cursor": {
+						"name": "Cursor",
+						"description": "An image URL for a custom cursor.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor: {{{insert}}};\n}"]]
+					},
+					"cursor-pos": {
+						"name": "Cursor Position",
+						"description": "Change the amount the cursor is offset from its default placement. Useful for when cursor images have a lot of white space on the edges.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-offset: {{{insert}}};\n}"]]
+					},
+					"cursor-link": {
+						"name": "Cursor for Links",
+						"description": "This cursor will display while hovering over links.",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--cursor-link: {{{insert}}};\n}"]]
+					},
+					"cursor-link-pos": {
+						"name": "Cursor Position for Links",
+						"description": "This will have no effect if you have not added a URL in the \"Cursor for Links\" option.",
+						"type": "text/value/cursor",
+						"replacements": [["}", "\t--cursor-link-offset: {{{insert}}};\n}"]]
+					},
+					"menu-all": {
+						"name": "Category Menu - All Anime",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all: {{{insert}}};\n}"]]
+					},
+					"menu-all-sel": {
+						"name": "Category Menu - All Anime (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-all-sel: {{{insert}}};\n}"]]
+					},
+					"menu-current": {
+						"name": "Category Menu - Current",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current: {{{insert}}};\n}"]]
+					},
+					"menu-current-sel": {
+						"name": "Category Menu - Current (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-current-sel: {{{insert}}};\n}"]]
+					},
+					"menu-completed": {
+						"name": "Category Menu - Completed",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed: {{{insert}}};\n}"]]
+					},
+					"menu-completed-sel": {
+						"name": "Category Menu - Completed (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-completed-sel: {{{insert}}};\n}"]]
+					},
+					"menu-onhold": {
+						"name": "Category Menu - On Hold",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold: {{{insert}}};\n}"]]
+					},
+					"menu-onhold-sel": {
+						"name": "Category Menu - On Hold (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-onhold-sel: {{{insert}}};\n}"]]
+					},
+					"menu-dropped": {
+						"name": "Category Menu - Dropped",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped: {{{insert}}};\n}"]]
+					},
+					"menu-dropped-sel": {
+						"name": "Category Menu - Dropped (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-dropped-sel: {{{insert}}};\n}"]]
+					},
+					"menu-planned": {
+						"name": "Category Menu - Planned",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned: {{{insert}}};\n}"]]
+					},
+					"menu-planned-sel": {
+						"name": "Category Menu - Planned (Selected)",
+						"type": "text/image_url",
+						"replacements": [["}", "\t--menu-planned-sel: {{{insert}}};\n}"]]
+					}
+				}
+			},
+			"fonts": {
+				"name": "Change fonts",
+				"description": "This guide by Shishio-kun will show you how to change the fonts!",
+				"url": "https://www.youtube.com/watch?v=5IGsUjxjwnk"
+			}
+		}
+	}
+}
