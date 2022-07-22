@@ -1,10 +1,6 @@
 # Shelter Style Refresh
  A refreshed version of Takana no Hana's "Shelter Style" MyAnimeList list design.
 
-## List of todo changes:
-+ Smoothed a lot of transitions and hover effects, especially on the Grid Style.
-+ Added colour variables for all of the default list colours
-
 ## List of Completed Changes and Fixes:
 
 + Added customization option for filter overlay background image.
@@ -16,20 +12,27 @@
 + Slightly spruced up header menus.
 + Unified header dropdown styling.
 + Footer no longer scrolls with the page, and bottom of page feels less cramped.
++ Smoothed a lot of transitions and hover effects, especially on the Grid Style.
 + Added scrollbar styling to Firefox.
++ Added support for the new watch button.
++ (Grid Style) Re-added "More Info" section.
++ (Grid Style) Re-added tag edit button.
++ (Grid Style) Added support for Retail Manga column.
++ (Grid Style) Added transitions to list items.
 + (Line Style) List thumbnail images are no longer stretched.
 + (Line Style) Added minor horizontal padding to cramped table columns.
 + (Line Style) Smoothed animation of image.
 + (Line Style) Added animation to tag and studio sections to match image animation.
 + (Line Style) Empty tag boxes are now hidden.
 + (Line Style) Removed border from "More Info" section.
-+ (Line Style) Added support for the new watch button.
 - Fixed many visual bugs caused by using a non-default list style.
 - Fixed¹ menus opening while mouse isn't hovering over them.
 - Fixed cursor not working for logged out users.
 - Fixed some overlap on sort-by dropdown.
 - Fixed footer width issue on Microsoft Edge.
-- Removed a lot of unnecessary code, CSS is approximately 42% smaller before any minification tools.
+- Removed a lot of unnecessary code. Before minification tools, approximate CSS reduction is 42% smaller on Line Style, 46%-73% smaller on Grid Style, depending on the compared version.
+- (Grid Style) Fixed images flickering on first mouse hover.
+- (Grid Style) Fixed layout flickering on hover of list items.
 - (Line Style) Fixed header items being sized differently to header background.
 - (Line Style) Fixed user menu layering underneath sort menu.
 - (Line Style) Fixed long titles causing overflow on hover.
