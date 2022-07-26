@@ -1,0 +1,32 @@
+{
+	"json_version": 0.2,
+	"data": {
+		"name": "GochiUsa Refresh",
+		"author": "Takana no Hana",
+		"type": "modern",
+		"css": "https://dl.dropboxusercontent.com/s/odm9u5tfiei7duq/GochiUsa%20Refresh.css",
+		"help": "https://myanimelist.net/forum/?topicid=1524727",
+		"supports": ["animelist"],
+		"columns": {
+			"animelist": {
+				"Numbers": true,
+				"Score": true,
+				"Type": true,
+				"Episodes": true,
+				"Tags": true,
+				"Image": true
+			}
+		},
+		"options": {
+			"username": {
+				"name": "Your MyAnimeList Username",
+				"description": "Must be entered exactly as it appears on MyAnimeList. This is not required, but will reduce the impact on page load times from the pop-up images.",
+				"type": "text",
+				"replacements": [
+					["all/anime/presets", "anime/{{{insert}}}/presets"],
+					["all/manga/presets", "manga/{{{insert}}}/presets"]
+				]
+			}
+		}
+	}
+}

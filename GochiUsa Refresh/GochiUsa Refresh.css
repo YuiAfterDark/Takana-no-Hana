@@ -1,0 +1,1111 @@
+/* A GochiUsa theme for modern CSS
+** Theme by Takana no Hana
+** Refresh by Valerio Lyndon
+** Last update 2019-SEP-08
+**
+** If you have issues, whatever's broken is probably because of Valerio.
+** Please don't bother Takana with these problems, and direct them to Valerio.
+** Signed, V.L.
+*/
+
+/*==============================*\
+  !IMPORTS
+\*------------------------------*/
+
+@\import "https://malscraper.azurewebsites.net/covers/all/anime/presets/datatitleafter";
+@\import "https://malscraper.azurewebsites.net/covers/all/manga/presets/datatitleafter";
+@\import "https://fonts.googleapis.com/css?family=Rancho|Romanesco";
+
+/*==============================*\
+  !PAGE BASE
+\*------------------------------*/
+
+/* Generic Properties */
+
+* {
+	cursor: url(https://i.imgur.com/c2s0PdP.png), auto;
+	scrollbar-color: #a50066 #f5f5f5;
+	scrollbar-width: thin;
+}
+
+:link:not(.edit-disabled),
+:link:not(.edit-disabled) *,
+#advanced-options .sort-widget input[type=radio] + label,
+#advanced-options .sort-widget input[type=radio] + label *,
+#fancybox-close {
+	cursor: url(https://i.imgur.com/z9kvXqZ.png), pointer;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+	height: 7px;
+	background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #a50066;
+	border: 2px solid #f5f5f5;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+a:hover {
+	color: #fff !important;
+	text-decoration: none;
+}
+
+body {
+	padding-bottom: 10px;
+	background: #fffcf9 url(http://i.imgur.com/JsJCEPV.png) right bottom / cover fixed no-repeat;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#footer-block {
+	display: none;
+}
+
+/*==============================*\
+  !HEADER
+\*------------------------------*/
+
+/* Banner */
+
+body:after {
+	content: "";
+	top: 0;
+	left: 0px;
+	z-index: 9;
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 470px;
+	background: #fffcf9 url(http://i.imgur.com/BtUITOH.png) right top / cover no-repeat;
+}
+
+/* Floating Characters */
+
+body:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	display: block;
+	width: 100%;
+	height: 470px;
+	background: url(http://i.imgur.com/W3Ok3fj.png) 50% 50% / contain no-repeat;
+	animation: Floating 3s ease-in-out infinite;
+}
+
+@keyframes Floating{
+	0% {transform:translate(0, 0px);}
+	65% {transform:translate(0, -15px);}
+	100% {transform: translate(0, -0px);}   
+}
+
+/* Header Bar */
+
+.header a {
+	color: #fff !important;
+	font-weight: bold;
+}
+.header a:hover {
+	text-decoration: underline;
+}
+
+.header {
+	position: absolute;
+	top: 450px;
+	z-index: 20;
+	width: 100%;
+	height: 50px;
+	background: rgba(79,16,21) 0 0 / contain repeat-x;
+	background-image:
+		url(http://i.imgur.com/OmmoTGd.png),
+		linear-gradient(rgba(79,16,21,1), rgba(115,36,46,1), rgba(79,16,21,1));
+	box-shadow: 0px 5px 5px rgba(0,0,0,0.4);
+	color: #fff;
+}
+
+.header .header-title {
+	top: 0px;
+	left: 0px;
+	width: 50px;
+	height: 50px;
+	background-image: url(http://i.imgur.com/VgrYqgb.png);
+	background-size: auto 50px;
+}
+
+.header .header-menu {
+	top: 5px !important;
+}
+
+.header .header-menu .header-info {
+	color: rgba(255,255,255,0.8) !important;
+	font-size: 10px;
+}
+
+.header .header-menu .list-menu {
+	background-color: #fff;
+	border: #2E51A2 1px solid;
+}
+
+.header .header-menu .list-menu .icon-menu {
+	color: #2E51A2;
+}
+.header .header-menu .list-menu .icon-menu:hover {
+	background-color: #e1e7f5
+}
+
+.header .header-menu .list-menu .icon-menu svg.icon {
+	fill: #2E51A2;
+}
+
+.header .header-menu .btn-menu {
+	color: rgba(255,255,255,0.8) !important;
+	font-size: 12px !important;
+	text-shadow:
+		0 0 2px #000,
+		0 0 1px #000,
+		1px 1px 7px #000,
+		0 0 0 #FFF;
+}
+
+.username {
+	color: rgba(255,255,255,1) !important;
+}
+
+#header-menu-button {
+	color: rgba(255,255,255,0.8) !important;
+}
+
+/* Header Avatar Border */
+
+.header:after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	left: calc(50% - 129px);
+	z-index: 1;
+	display: block;
+	width: 258px;
+	height: 70px;
+	background: url(http://i.imgur.com/rFwqkZK.png) center top / cover no-repeat;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+  @List Menu
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+.list-menu-float {
+	position: absolute;
+	top: 450px;
+	left: 50%;
+	z-index: 100;
+	display: flex;
+	width: 60px;
+	height: 60px;
+	background: transparent;
+	border: none;
+	margin-top: 15px !important;
+	overflow: hidden;
+	transform: translateX(-50%);
+	transition: width 0.3s ease-in-out;
+}
+.list-menu-float:hover {
+	width: 700px;
+}
+
+.list-menu-float .icon-menu {
+	height: 0;
+	background-color: transparent !important;
+}
+
+.list-menu-float .icon-menu:not(.profile) {
+	width: 30px !important;
+	margin-top: -10px;
+	flex: 0 0 auto;
+}
+
+.list-menu-float .icon-menu.profile {
+	position: absolute;
+	left: calc(50% - 30px);
+	width: 60px !important;
+	height: 60px;
+	border-radius: 50%;
+	box-shadow: 2px 2px 8px -3px rgba(0,0,0,.76);
+}
+
+.list-menu-float .icon-menu svg.icon {
+	fill: rgba(255,255,255,.6);
+}
+.list-menu-float .icon-menu:hover svg.icon {
+	fill: rgba(255,255,255,1);
+}
+
+.list-menu-float .icon-menu:not(.setting) .text {
+	display: none !important;
+}
+
+/* Individual Positions */
+
+.list-menu-float .icon-menu.quick-add {
+	margin-left: 120px;
+}
+
+.list-menu-float .icon-menu.history {
+	margin-left: 260px;
+}
+
+.list-menu-float .icon-menu.setting {
+	position: absolute;
+	left: 230px;
+	margin-top: 0px;
+}
+
+.list-menu-float .icon-menu.setting .text {
+  height: 50px;
+  top: 0px;
+  width: 0px;
+  opacity: 0;
+  font-size: 13px;
+}
+
+.list-menu-float .icon-menu.setting:hover .text {
+  height: 50px;
+  top: 0px;
+  width: 80px;
+  opacity: 1
+}
+
+.list-menu-float .icon-menu.setting .text .link-list-setting,
+.list-menu-float .icon-menu.setting .text .link-style-setting {
+  display: block;
+  opacity: 0;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting,
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+  position: absolute;
+  height: 25px;
+  line-height: 25px;
+  background-color: white;
+  color: rgb(74,72,73);
+  display: block;
+  width: 80px;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting {
+  top: 0px;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+  border-top: rgb(74,72,73) 1px solid;
+  top: 25px;
+}
+
+.list-menu-float .icon-menu.setting .text {
+	top: 0px;
+	left: 34px;
+	padding-left: 16px;
+	width: 0px;
+	height: 50px;
+	opacity: 0;
+	
+}
+.list-menu-float .icon-menu.setting:hover .text {
+	top: 0px;
+	width: 114px;
+	height: 100px;
+	opacity: 1
+}
+
+.list-menu-float .icon-menu.setting .text .link-list-setting,
+.list-menu-float .icon-menu.setting .text .link-style-setting {
+	display: block;
+	opacity: 0;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting,
+.list-menu-float .icon-menu.setting:hover .text .link-style-setting {
+	position: absolute;
+	display: block;
+	width: 110px;
+	height: 50px;
+	background: linear-gradient(rgba(71, 49, 121, 0.9), rgba(15, 5, 32, 1)); /* Standard syntax */
+	color: #ffffff;
+	line-height: 25px;
+	text-decoration: none;
+	opacity: 1;
+}
+
+.list-menu-float .icon-menu.setting:hover .text .link-list-setting {
+	top: 0px;
+}
+
+/*==============================*\
+  !STATUS MENU / !CATEGORY BUTTONS
+\*------------------------------*/
+
+/* Hover Icon */
+
+.status-menu-container:before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 6;
+	display: block;
+	width: 110px;
+	height: 85px;
+	background: url(http://i.imgur.com/aR0b2Ji.png) center / contain no-repeat;
+	transition: all 0.2s ease-in-out 0.2s;
+ 	opacity: 1;
+}
+ 
+.status-menu-container:hover:before {
+	margin-top: -30px;
+	opacity: 0;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;
+	transition: all 0.5s ease-in-out 0.5s;
+	animation: shake 0.7s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+	10%, 90% {
+		transform: translate3d(-1px, 0, 0);
+	}
+	20%, 80% {
+		transform: translate3d(2px, 0, 0);
+	}
+	30%, 50%, 70% {
+		transform: translate3d(-4px, 0, 0);
+	}
+	40%, 60% {
+		transform: translate3d(4px, 0, 0);
+	}
+}
+ 
+.status-menu-container,
+.status-menu-container.fixed {
+	position: fixed;
+	display: block;
+	top: 50px;
+	left: -100px;
+	z-index: 60;
+	width: 0;
+	height: 200px;
+	background-color: transparent;
+	border: none;
+	transition: left .5s ease-out;
+}
+
+.status-menu-container:hover,
+.status-menu-container.fixed:hover { 
+	left: 0;
+	transition: left .5s ease-out .5s;
+}
+
+.status-menu-container.fixed + div.list-block {
+	margin: 0;
+}
+
+.status-menu-container .status-menu {
+	display: block;
+	border-spacing: 20px 0;
+}
+
+.status-menu-container .status-menu .status-button {
+	display: block;
+	width: 100px;
+	height: 100px;
+	padding: 0;
+	background: transparent center / cover no-repeat;
+	font-size: 0;
+	color: transparent;
+	transition: all 0.2s ease-in-out 0.2s;
+}
+.status-menu-container .status-menu .status-button:hover {
+	transition: all 0.2s ease-in-out;
+}
+.status-menu-container .status-menu .status-button:not(:first-child) {
+	margin-top: -20px;
+}
+
+.status-menu-container .status-menu .status-button.on {
+	background-image: linear-gradient(rgba(71, 49, 121, 0.9), rgba(15, 5, 32, 1));
+}
+
+/* Images */
+
+.status-menu-container .status-menu .status-button.watching,
+.status-menu-container .status-menu .status-button.reading {
+	background-image: url(http://i.imgur.com/qI2ZIMF.png);
+}
+.status-menu-container .status-menu .status-button.watching:hover,
+.status-menu-container .status-menu .status-button.reading:hover,
+.status-menu-container .status-menu .status-button.watching.on,
+.status-menu-container .status-menu .status-button.reading.on {
+	background-image: url(http://i.imgur.com/FlsbAlM.png);
+}
+
+.status-menu-container .status-menu .status-button.completed {
+	background-image: url("http://i.imgur.com/l1WxqGk.png");
+}
+.status-menu-container .status-menu .status-button.completed:hover,
+.status-menu-container .status-menu .status-button.completed.on {
+	background-image: url("http://i.imgur.com/FRyNKSO.png");
+}
+
+.status-menu-container .status-menu .status-button.onhold {
+	background-image: url("http://i.imgur.com/B2pIB9G.png");
+}
+.status-menu-container .status-menu .status-button.onhold:hover,
+.status-menu-container .status-menu .status-button.onhold.on {
+	background-image: url("http://i.imgur.com/3pb1bsA.png");
+}
+
+.status-menu-container .status-menu .status-button.dropped {
+	background-image: url("http://i.imgur.com/YOEj0OD.png");
+}
+.status-menu-container .status-menu .status-button.dropped:hover,
+.status-menu-container .status-menu .status-button.dropped.on {
+	background-image: url("http://i.imgur.com/wQSJPAF.png");
+}
+
+.status-menu-container .status-menu .status-button.plantowatch,
+.status-menu-container .status-menu .status-button.plantoread {
+	background-image: url("http://i.imgur.com/5AvBfdn.png");
+}
+.status-menu-container .status-menu .status-button.plantowatch:hover,
+.status-menu-container .status-menu .status-button.plantoread:hover,
+.status-menu-container .status-menu .status-button.plantowatch.on,
+.status-menu-container .status-menu .status-button.plantoread.on {
+	background-image: url("http://i.imgur.com/mQCWKiE.png");
+}
+
+.status-button.all_anime {
+	display: none !important;
+}
+
+/* Text */
+
+.status-menu-container .status-menu .status-button:after {
+	top: 0;
+	z-index: 60;
+	width: 100px;
+	height: 100px;
+	background: transparent;
+	color: #fff;
+	font: bold 20px/50px Romanesco;
+	vertical-align: middle;
+	text-align: center;
+	text-shadow:
+		0 0 2px #000,
+		0 0 1px #000,
+		1px 1px 7px #000,
+		0 0 0 #FFF;
+	pointer-events: none;
+}
+.status-menu-container .status-menu .status-button:hover:after {
+	margin-top: 50px;
+	opacity: 1;
+	transition: all 0.2s ease-in-out 0.2s;
+}
+
+.status-menu-container .status-menu .status-button.on:not(:hover):after {
+	opacity: 0;
+}
+
+.status-menu-container .status-menu .status-button.watching:after,
+.status-menu-container .status-menu .status-button.reading:after{
+	content: 'Watching';
+}
+.status-menu-container .status-menu .status-button.reading:after {
+	content: 'Reading';
+}
+.status-menu-container .status-menu .status-button.completed:after {
+	content: 'Complete';
+}
+.status-menu-container .status-menu .status-button.onhold:after {
+	content: 'Hold';
+}
+.status-menu-container .status-menu .status-button.dropped:after {
+	content: 'Dropped';
+}
+.status-menu-container .status-menu .status-button.plantowatch:after,
+.status-menu-container .status-menu .status-button.plantoread:after{
+	content: 'Plan';
+}
+
+/* Search Bar */
+
+.status-menu-container .search-container {
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+	width: 140px !important;
+	
+}
+.status-menu-container .search-container #search-button {
+	color: #787878;
+}
+
+/*==============================*\
+  !CONTENT CONTAINER
+\*------------------------------*/
+
+/* Left Side Wallpaper */
+
+footer:before {
+	content: "";
+	position: fixed;
+	top: 0;
+	z-index: -1;
+	right: calc(16% + 612px);
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fffcf9 right center / contain no-repeat;
+}
+[data-query*='status":1'] footer:before {
+	background-image: url(http://i.imgur.com/3GtASXm.jpg);
+}
+[data-query*='status":2'] footer:before {
+	background-image: url(http://i.imgur.com/MQsODjt.jpg);
+}
+[data-query*='status":3'] footer:before {
+	background-image: url(http://i.imgur.com/6uwJHq8.jpg);
+}
+[data-query*='status":4'] footer:before {
+	background-image: url(http://i.imgur.com/ogorszZ.jpg);
+}
+[data-query*='status":6'] footer:before {
+	background-image: url(http://i.imgur.com/YKISJ02.jpg);
+}
+
+/* Right-side Character Render */
+
+.list-unit:after {
+	content: "";
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	z-index: 9;
+	display: block;
+	width: 20%;
+	height: 100%;
+	background: transparent bottom right / 100% no-repeat;
+	background-size: 100%;
+	pointer-events: none;
+}
+[data-query*='status":1'] .list-unit:after {
+	background-image: url(http://i.imgur.com/4850NrO.png);
+}
+[data-query*='status":2'] .list-unit:after {
+	background-image: url(http://i.imgur.com/QIQv5oU.png);
+}
+[data-query*='status":3'] .list-unit:after {
+	background-image: url(http://i.imgur.com/mxSdlQX.png);
+}
+[data-query*='status":4'] .list-unit:after {
+	background-image: url(http://i.imgur.com/UoPx37I.png);
+}
+[data-query*='status":6'] .list-unit:after {
+	background-image: url(http://i.imgur.com/jfCq1dV.png);
+}
+
+/* Main Container */
+
+.list-container {
+	position: absolute;
+	top: 550px;
+	right: 16%;
+	width: 600px;
+	background-color: transparent !important;
+	border: 6px solid rgba(255,255,255, 0.7);
+	border-image: url(http://i.imgur.com/ilIkHet.png) 6 stretch;
+	box-shadow: 0 2px 5px rgba(0,0,0, 0.7);
+	margin-bottom: 30px;
+	text-align: left;
+}
+
+.list-block {
+	margin: 0;
+	min-height:0;
+}
+
+.list-unit {
+	margin: 0;
+	width: 600px;
+}
+
+.list-table {
+	border:none;
+	color: #000 !important;
+}
+
+/* Top Cover Block */
+
+.cover-block {
+	width: 600px;
+}
+
+.cover-block .image-container {
+	padding-top: 0px;
+	width: 600px;
+}
+
+#cover-image {
+  width: 600px;
+  height: auto;
+}
+
+.cover-block .image-container .btn-list-setting:hover {
+	border: none;
+	text-shadow: #323232 1px 1px 1px;
+}
+
+/* Top Render */
+
+.list-status-title:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 600px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-bottom: 20px;
+	color: transparent;
+	pointer-events: none;
+} 
+[data-query*='status":1'] .list-status-title:after {
+	height: 682px;
+	background-image: url("http://i.imgur.com/jzbIsrM.png");
+}
+[data-query*='status":2'] .list-status-title:after {
+	height: 550px;
+	background-image: url("http://i.imgur.com/uSgnQd2.png");
+}
+[data-query*='status":3'] .list-status-title:after {
+	height: 682px;
+	background-image: url("http://i.imgur.com/vm4BlEq.png");
+}
+[data-query*='status":4'] .list-status-title:after {
+	height: 682px;
+	background-image: url("http://i.imgur.com/U6LDgyh.png");
+}
+[data-query*='status":6'] .list-status-title:after {
+	height: 682px;
+	background-image: url("http://i.imgur.com/rYE0y4R.png");
+}
+
+/* Top Render Contrast */
+
+.list-status-title:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -2;
+	width: 100%;
+	height: 470px;
+	background: rgba(255,255,255,0.6);
+}
+
+/* List End */
+
+.list-unit .loading-space {
+	display: inline-block;
+	width: 600px;
+	height: 241px;
+	padding-top: 0px;
+	background: transparent url(http://i.imgur.com/q2TtrwV.jpg) center bottom / contain no-repeat scroll;
+	margin: auto;
+	color: #fff !important;
+	font-size: 11px;
+	line-height: 15px;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+  @List Items
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+.list-unit .list-status-title {
+	width: 100%;
+	height: 470px;
+	background-color: transparent;
+}
+
+.list-unit .list-status-title .text {
+	display: none;
+}
+
+.list-unit .list-status-title .stats {
+	top: 420px;
+}
+
+.list-unit .list-status-title .stats a {
+	margin-right: 8px;
+	color: #FFF;
+	text-shadow:
+		0 0 2px #000,
+		0 0 1px #000,
+		1px 1px 7px #000,
+		0 0 0 #FFF;
+}
+
+.list-unit .list-stats {
+	position: fixed;
+	bottom: 0;
+	right: calc(16% + 6px);
+	z-index: 1;
+	width: 600px;
+	height: 35px;
+	background: rgba(255,255,255,0.7);
+	color: #323232;
+}
+
+/*==============================*\
+  !LIST
+\*------------------------------*/
+
+/* Sort By */
+
+.list-table .list-table-header .header-title {
+	position: absolute;
+	left: 50%;
+	z-index: 10;
+	display: block;
+	width: auto !important;
+	height: 36px;
+	background: transparent;
+	border: none;
+	margin-top: -40px;
+	color: #fff !important;
+	font-size: 11px;
+	font-style: italic !important;
+	text-shadow: 0 0 2px #000, 0 0 1px #000, 1px 1px 7px #000, 0 0 0 #FFF !important;
+	vertical-align: middle;
+	text-align: center;
+	transform: translateX(-50%);
+}
+.list-table .list-table-header .header-title.score {
+	margin-left: -65px;
+}
+.list-table .list-table-header .header-title.progress,
+.list-table .list-table-header .header-title.chapters {
+	margin-left: 65px;
+}
+
+.list-table .list-table-header .header-title:not(.score):not(.type):not(.progress):not(.chapters) {
+	display: none !important;
+}
+
+.list-table .list-table-header .header-title .link.sort {
+	color: #fff;
+}
+
+.list-table .list-table-header .header-title .sort-icon {
+	color: #fff;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+  @List Items
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+.list-table > tbody:nth-of-type(2n+1) {
+	background-color: rgba(222, 222, 222, 0.6) !important;
+}
+
+.list-table > tbody:nth-of-type(2n) {
+	background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.list-table .list-table-data:hover {
+	transition: .2s linear;
+	background-color: rgba(107, 65, 124, 0.6);
+	color: #fff !important;
+}
+
+.list-table .list-table-data:hover a {
+	color: #fff !important;
+}
+
+.list-table .list-table-data .data {
+	height: 40px;
+	border: none;
+	color: #000 !important;
+}
+.list-table .list-table-data:hover .data {
+	color: #fff !important;
+}
+
+.list-table .list-table-data a:not(.edit-disabled):hover {
+	color: #fff !important;
+	text-decoration: underline;
+}
+
+.list-table .list-table-data a.edit-disabled {
+	color: #000;
+}
+
+/* Number */
+
+.list-table .list-table-data .data.number:hover {
+	background-color: rgba(107, 65, 124, 0.8);
+	transition: all .5s linear;
+}
+
+/* Image */
+
+.list-table .list-table-data .data.image .image {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	box-shadow: 2px 2px 8px -3px rgba(0,0,0,.76);
+	object-fit: cover;
+}
+
+.list-table .list-table-data:hover .data.image {
+	opacity: 0;
+	transform: translateX(-30px);
+	transition: all .3s ease;
+}
+
+/* Title */
+
+.list-table .list-table-data:hover .data.title  {
+	color: #fff !important;
+	text-shadow:
+		0 0 2px #5c4ef5,
+		0 0 1px #5c4ef5,
+		0 1px 7px #5c4ef5,
+		0 0 0.5px #5c4ef5;
+	transition: all .1s linear;
+}
+
+.list-table .list-table-data .data.title .link {
+	font-size: 17px !important;
+	font-family: Rancho !important;
+	font-weight: 100 !important;
+	text-decoration: none !important;
+	transition: all 0.1s ease 0s;
+}
+
+.list-table .list-table-data:hover .data.title .link {
+	color: #fff !important;
+	letter-spacing: 0.5px;
+	transition: all 0.1s ease 0s;
+}
+  
+.list-table .list-table-data .data.title .rewatching,
+.list-table .list-table-data .data.title .rereading,
+.list-table .list-table-data .data.title .content-status {
+	color: #fff !important;
+	text-shadow:
+		0 0 2px #1a1aff,
+		0 0 1px #1a1aff,
+		1px 1px 7px #1a1aff,
+		0 0 0 #1a1aff !important;
+}
+
+/* Title - Add/Edit/More */
+
+.add-edit-more {
+	font-size: 0 !important;
+	opacity: 0;
+	transition: all 0.2s ease 0s;
+}
+.list-item:hover .add-edit-more {
+	opacity: 1;
+	transition: all 0.2s ease 0s;
+}
+
+.list-table .list-table-data .data.title .add-edit-more a {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-size: cover;
+	color: transparent !important;
+}
+.list-table .list-table-data .data.title .edit a {
+	background-image: url(http://i.imgur.com/OT1yCLP.png);
+	margin-right: 7px;
+}
+.list-table .list-table-data .data.title .more a {
+	background-image: url(http://i.imgur.com/cUAaila.png);
+}
+.list-table .list-table-data .data.title .add a {
+	background-image: url(http://i.imgur.com/AoTgUAL.png);
+}
+
+/* Title - Watch Buttons */
+
+.link.sort + a {
+	display: none;
+}
+
+/* Score */
+
+.list-table .list-table-data .data.score .link {
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+	background-image: url(http://i.imgur.com/udzEw6G.png);
+	background-repeat: no-repeat;
+	background-size:contain;
+	background-position: 50% 50%;
+	color:#fff !important;
+	line-height: 21px;
+}
+
+/* Tags/Reviews */
+
+.list-table .list-table-data .tags .edit,
+.list-table .list-table-data .tags textarea {
+	display: none;
+}
+
+.list-table .list-table-data .data.tags {
+	position: fixed;
+	top: 90px;
+	left: -30px;
+	display: block;
+	width: 135px;
+	padding: 10px;
+	line-height: 16px;
+	font-family: Segoe UI, Atilla, Arial, Helvetica, sans-serif;
+	text-align: left;
+	opacity: 0;
+	transition:
+		opacity .3s linear,
+		transform .5s ease;
+	pointer-events: none;
+}
+
+.list-table .list-table-data .data.tags span:first-child:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	display: block;
+	width: 150px;
+	height: 224px;
+	background: url(http://i.imgur.com/sSnHx6Z.png) center / contain no-repeat;
+	box-shadow: 0 2px 5px rgba(0,0,0, 1);
+	pointer-events: none;
+}
+
+.list-table .list-table-data:hover .data.tags {
+	opacity: 1;
+	transform: translateX(162px);
+}
+
+/* More Info */
+
+td.td1.borderRBL {
+	color: #000 !important;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*\
+  @High Res Covers
+\*~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+.link.sort:after {
+	content: "";
+	position: fixed;
+	top: 90px;
+	left: -20px;
+	z-index: 5;
+	display: block;
+	width: 122px;
+	height: 180px;
+	background-color: rgba(0,0,0,.3);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border: 1px solid #ffffff;
+	box-shadow: 0 2px 5px rgba(0,0,0, 0.7);
+	opacity: 0;
+	transition:
+		opacity .3s linear,
+		transform .5s ease;
+	pointer-events: none;
+}
+.list-table .list-table-data:hover .link.sort:after {
+	opacity: 1;
+	transform: translateX(30px);
+}
+
+/*==============================*\
+  FILTER MENU
+\*------------------------------*/
+
+#advanced-options {
+	position: fixed;
+	background: #F6F6F6 url(http://i.imgur.com/4bgsxkl.png) center / contain no-repeat;
+	border: 5px solid rgba(255,255,255, 0.7);
+	color: #323232;
+}
+	
+#advanced-options .advanced-options-header {
+	border-bottom: 1px solid #BEBEBE;
+	color:#fff !important;
+	text-shadow:
+		0 0 2px #000,
+		0 0 1px #000,
+		1px 1px 5px #000,
+		0 0 0 #000;
+}
+
+#advanced-options .sort-widget .widget-header,
+#advanced-options .filter-widget .widget-header,
+#advanced-options .filter-widget.aired-date .text,
+#advanced-options .filter-widget.published-date .text {
+	color: #fff !important;
+	text-shadow:
+		0 0 2px #000,
+		0 0 1px #000,
+		1px 1px 5px #000,
+		0 0 0 #000;
+}
+
+#advanced-options input:focus {
+	outline: none;
+}
+
+#advanced-options .sort-widget input[type=radio]:checked + label {
+	background-color: #244291;
+	border: #244291 1px solid;
+	color: #FFFFFF;
+}
+
+#advanced-options .advanced-options-button {
+	border-top: 1px solid #BEBEBE;
+}
+
+#advanced-options .btn-apply,
+#advanced-options .btn-clear {
+	background-color: rgba(36, 66, 145, 1);
+	color: #FFFFFF;
+}
+
+#advanced-options .btn-apply:hover,
+#advanced-options .btn-clear:hover {
+  background-color: rgba(36, 66, 145, 0.8);
+}
