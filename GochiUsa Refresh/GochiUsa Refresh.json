@@ -17,6 +17,10 @@
 				"Image": true
 			}
 		},
+		"preview": {
+			"cover": false,
+			"category": 1
+		},
 		"options": {
 			"username": {
 				"name": "Your MyAnimeList Username",
