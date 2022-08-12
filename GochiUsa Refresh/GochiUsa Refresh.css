@@ -1,7 +1,7 @@
 /* A GochiUsa theme for modern CSS
 ** Theme by Takana no Hana
 ** Refresh by Valerio Lyndon
-** Last update 2019-SEP-08
+** Last update 2022-AUG-11
 **
 ** If you have issues, whatever's broken is probably because of Valerio.
 ** Please don't bother Takana with these problems, and direct them to Valerio.
@@ -492,6 +492,17 @@ body:before {
 
 .status-button.all_anime {
 	display: none !important;
+}
+
+/* Preload button images to prevent flicker */
+
+footer {
+	background-image:
+		url(http://i.imgur.com/FlsbAlM.png),
+		url(http://i.imgur.com/FRyNKSO.png),
+		url(http://i.imgur.com/3pb1bsA.png),
+		url(http://i.imgur.com/wQSJPAF.png),
+		url(http://i.imgur.com/mQCWKiE.png);
 }
 
 /* Text */
