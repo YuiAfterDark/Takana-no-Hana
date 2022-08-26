@@ -4,7 +4,7 @@
  * Edits by Shishio-kun
  * Refresh changes by Valerio Lyndon
  * 
- * v0.2.1 (2022-JUL-21)
+ * v0.2.1 (2022-AUG-26)
  */
 
 
@@ -25,7 +25,11 @@
 	--background: url(http://i.imgur.com/vuarwtS.jpg);
 	--banner: url(http://i.imgur.com/kAGfZRq.png);
 	--left-render: url(http://i.imgur.com/MO8goKt.png);
+	--left-render-pos: center bottom;
+	--left-render-size: contain;
 	--right-render: url(http://i.imgur.com/MO8goKt.png);
+	--right-render-pos: center bottom;
+	--right-render-size: contain;
 	--filter-background: url(http://i.imgur.com/xD2LRjG.png);
 	
 	--cursor: url(https://i.imgur.com/iAvGz1j.png);
@@ -1111,12 +1115,12 @@ footer::before, footer::after {
 
 footer::before {
 	right: calc(50% + 350px);
-	background: var(--left-render) center bottom / contain no-repeat;
+	background: var(--left-render) var(--left-render-pos) / var(--left-render-size) no-repeat;
 }
 
 footer::after {
 	left: calc(50% + 350px);
-	background: var(--right-render) center bottom / contain no-repeat;
+	background: var(--right-render) var(--right-render-pos) / var(--right-render-size) no-repeat;
 }
 
 
