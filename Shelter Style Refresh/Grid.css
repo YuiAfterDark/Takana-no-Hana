@@ -4,7 +4,7 @@
  * Edits by Shishio-kun
  * Refresh changes by Valerio Lyndon
  * 
- * v0.2.0 (2022-AUG-26)
+ * v1.0.0 (2022-SEP-03)
  */
 
 
@@ -977,6 +977,12 @@ body.ownlist {
 
 #list-container .mal-icon i {
 	color: var(--text-color-primary);
+}
+
+/* Notes */
+
+.notes {
+	display: none;
 }
 
 /* Dark Overlays */
