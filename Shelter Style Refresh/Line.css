@@ -4,7 +4,7 @@
  * Edits by Shishio-kun
  * Refresh changes by Valerio Lyndon
  * 
- * v0.2.1 (2022-AUG-26)
+ * v1.0.0 (2022-SEP-03)
  */
 
 
@@ -877,6 +877,8 @@ body.ownlist {
 	margin: 10px 0 0 5px;
 }
 
+/* Watch Icon */
+
 .icon-watch2 {
 	width: 15px;
 	height: 15px;
@@ -890,6 +892,12 @@ body.ownlist {
 
 .icon-watch2 .malicon {
 	color: var(--text-color-primary) !important;
+}
+
+/* Notes */
+
+.notes {
+	display: none;
 }
 
 /*  Add/Edit/More */
