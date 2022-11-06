@@ -1,10 +1,10 @@
 /* 
  * Shelter Style Refresh (Line Version)
  * Original layout design by Takana no Hana
- * Edits by Shishio-kun
- * Refresh changes by Valerio Lyndon
+ * Further edits by Shishio-kun
+ * Refresh version by Valerio Lyndon
  * 
- * v1.0.0 (2022-SEP-03)
+ * v1.1.0 (2022-NOV-05)
  */
 
 
@@ -71,13 +71,15 @@
 	--nav-dropdown-background-color: rgb(223,233,233,0.9);
 	--filter-button-background-color: rgba(0,0,0,0.8);
 	--hover-background-color: rgba(0,0,0,.5);
+	--input-background-color: #fff;
 	
 	--text-color-primary: #fff;
-	--text-color-3: rgba(255,255,255,0.8);	
+	--text-color-header: rgba(255,255,255,0.8);	
 	--text-color-alt: #323232;
 	--text-color-soft: #9b9b9b;
 	--text-color-stark: #000;
 	--text-color-filter-menu: rgba(0,0,0,0.6);
+	--footer-text-color: #9caed9;
 	
 	--border: #fff;
 	--border-soft: #bebebe;
@@ -131,12 +133,13 @@
 /* BASIC PAGE SETTINGS */
 
 * {
-	cursor: var(--cursor) var(--cursor-offset), default;
+	cursor: var(--cursor) var(--cursor-offset), default !important;
 	scrollbar-color: var(--scroll-bar) var(--scroll-background);
 	scrollbar-width: thin;
 }
-a:not(.edit-disabled) {
-	cursor: var(--cursor-link) var(--cursor-link-offset), pointer;
+a:not(.edit-disabled), a:not(.edit-disabled) *,
+#advanced-options label, #advanced-options label * {
+	cursor: var(--cursor-link) var(--cursor-link-offset), pointer !important;
 }
 
 ::-webkit-scrollbar {
@@ -156,6 +159,22 @@ a {
 a:hover {
 	color: var(--text-color-primary) !important;
 	text-decoration: none;
+}
+
+textarea,
+select,
+input,
+#advanced-options label {
+	background-color: var(--input-background-color) !important;
+	color: var(--text-color-alt) !important;
+	border: none !important;
+}
+#advanced-options :disabled,
+#advanced-options :disabled + label {
+	opacity: 0.5;
+}
+#advanced-options :not(:checked):not(:disabled) + label {
+	opacity: .7;
 }
 
 body.ownlist {
@@ -191,19 +210,20 @@ body.ownlist {
 
 .header .header-menu {
 	top: 5px;
-	color: var(--text-color-3);
+	color: var(--text-color-header);
 } .header .header-menu.other {
 	top: 5px;
 }
 
 .header .header-menu .btn-menu {
+	color: var(--text-color-header);
 	font-size: 12px;
 	text-shadow: var(--shadow-heavy);
 }
 
 .header .header-menu .header-info {
+	color: var(--text-color-header);
 	font-size: 10px;
-	color: var(--text-color-3);
 }
 
 .header .header-menu .list-menu {
@@ -1023,8 +1043,13 @@ body.ownlist {
 	border-bottom: 0;
 }
 
-td.td1.borderRBL {
-	color: var(--text-color-primary);
+td.td1.borderRBL,
+.list-table .more-info .more-content a {
+	color: var(--text-color-primary) !important;
+}
+
+.more-content a {
+	text-decoration: underline;
 }
 
 
@@ -1039,8 +1064,13 @@ td.td1.borderRBL {
 }
 
 #copyright {
+	color: var(--footer-text-color);
 	font-size: 10px;
 	white-space: pre;
+}
+
+#recaptcha-terms {
+	color: var(--footer-text-color);
 }
 
 #copyright::after {
@@ -1063,6 +1093,10 @@ td.td1.borderRBL {
 .mal-modal .broadcast a:hover {
 	color: var(--text-color-primary) !important;
 	background: var(--hover-background-color) !important;
+}
+
+.mal-modal .mal-modal-dialog .mal-modal-content .mal-modal-header {
+	border-color: var(--border-soft) !important;
 }
 
 
