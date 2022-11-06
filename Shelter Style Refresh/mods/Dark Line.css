@@ -1,0 +1,42 @@
+/*
+ * DARK MODE / CUSTOM COLOURS
+ * For use with Line v1.1.0
+ */
+
+:root {
+	--menu-background-color: rgba(0,0,0,.88);
+	--list-background-color-1: rgba(0,0,0,.6);
+	--list-background-color-2: rgba(0,0,0,.67);
+	--nav-dropdown-background-color: rgba(0,0,0,.88);
+	--filter-button-background-color: rgba(0,0,0,0.8);
+	--hover-background-color: rgba(0,0,0,.75);
+	--input-background-color: rgba(0,0,0,.75);
+	
+	--text-color-primary: #eee;
+	--text-color-header: #eee;
+	--text-color-alt: #aaa;
+	--text-color-soft: #9b9b9b;
+	--text-color-stark: #fff;
+	--text-color-filter-menu: rgba(255,255,255,0.8);
+	--footer-text-color: #9caed9;
+	
+	--border: #121212;
+	--border-soft: rgba(0,0,0,0.5);
+	--scroll-background: #000;
+	--scroll-bar: #9b9b9b;
+	
+	--darkening-color: rgba(0,0,0,0.6);
+	
+	--shadow-heavy:
+		0 0 2px #000,
+		0 0 1px #000,
+		1px 1px 7px #000;
+	--shadow-soft:
+		0 2px 5px rgba(0,0,0, 0.7);
+	--shadow-image:
+		2px 2px 8px -3px rgba(0,0,0,.76);
+	--shadow-status:
+		0 0 2px #1a1aff,
+		0 0 1px #1a1aff,
+		1px 1px 7px #1a1aff;
+}
