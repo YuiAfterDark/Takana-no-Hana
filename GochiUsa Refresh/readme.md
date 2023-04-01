@@ -10,6 +10,7 @@
 + Added missing cursor on some areas of the page, changed image type to prevent potential non-owner view issues.
 + Removed unused fonts to lighten page load.
 - Corrected list stats position.
+- Fixed category buttons flickering on first hover.
 - Fixed jerky animation on header.
 - Fixed animation on small preview images.
 - Fixed flicker on large cover images.
