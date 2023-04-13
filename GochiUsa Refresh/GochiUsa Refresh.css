@@ -1,7 +1,7 @@
 /* A GochiUsa theme for modern CSS
 ** Theme by Takana no Hana
 ** Refresh by Valerio Lyndon
-** Last update 2022-AUG-11
+** Last update 2023-APR-12
 **
 ** If you have issues, whatever's broken is probably because of Valerio.
 ** Please don't bother Takana with these problems, and direct them to Valerio.
@@ -57,7 +57,7 @@ a:hover {
 
 body {
 	padding-bottom: 10px;
-	background: #fffcf9 url(http://i.imgur.com/JsJCEPV.png) right bottom / cover fixed no-repeat;
+	background: #fffcf9 url(http://i.imgur.com/JsJCEPV.png) right bottom / cover fixed no-repeat !important;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
